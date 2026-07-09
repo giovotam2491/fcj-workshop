@@ -1,59 +1,41 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thêm chức năng xác thực người dùng cho project bằng Amazon Cognito.
+* Nắm được cơ chế đăng nhập cho ứng dụng Single Page Application (SPA).
+* Kết nối frontend với serverless API và test luồng đăng nhập.
+* Tìm hiểu AWS Amplify hỗ trợ storage/auth cho frontend.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu Amazon Cognito: khái niệm User Pool và Identity Pool <br> - Học luồng đăng ký (sign-up), xác nhận email và đăng nhập (sign-in) <br> - Hiểu cơ chế cấp token (ID token, Access token, Refresh token) sau khi đăng nhập thành công | 08/06/2026 | 08/06/2026 | <https://000081.awsstudygroup.com/> |
+| 3 | - Tìm hiểu cơ chế đăng nhập cho Single Page Application (SPA) <br> - Học cách frontend lưu và gửi token trong header khi gọi API <br> - Hiểu khái niệm JWT và cách backend/API Gateway xác thực token | 09/06/2026 | 09/06/2026 | <https://000055.awsstudygroup.com/> |
+| 4 | - Tìm hiểu AWS Amplify ở mức khái niệm: hỗ trợ auth, storage và hosting cho frontend <br> - Hiểu cách Amplify tích hợp sẵn với Cognito và S3 <br> - So sánh việc dùng Amplify so với tự cấu hình các dịch vụ riêng lẻ | 10/06/2026 | 10/06/2026 | <https://000134.awsstudygroup.com/> |
+| 5 | - **Thực hành:** kết nối frontend với serverless API (API Gateway + Lambda) <br> - Cấu hình Cognito authorizer cho API Gateway để bảo vệ endpoint <br> - Test luồng đăng nhập: đăng nhập → nhận token → gọi API có xác thực <br> - Chụp screenshot các bước để làm tư liệu báo cáo | 11/06/2026 | 11/06/2026 | <https://000079.awsstudygroup.com/> |
+| 6 | - Nghiên cứu sâu hơn cách frontend kết nối và xác thực với serverless backend <br> - Rà soát luồng end-to-end: người dùng → Cognito → frontend → API Gateway → Lambda → DynamoDB <br> - Xử lý các lỗi CORS và authentication phát sinh <br> - Tổng hợp và viết worklog tuần 8 | 12/06/2026 | 12/06/2026 | <https://000079.awsstudygroup.com/> |
 
+### Kiến thức thu được trong tuần:
+
+* **Amazon Cognito:** hiểu vai trò của User Pool/Identity Pool, luồng sign-up/sign-in và cơ chế cấp ID/Access/Refresh token.
+* **Xác thực SPA:** nắm được cách frontend lưu và gửi JWT token khi gọi API, và cách backend xác thực token.
+* **Cognito Authorizer:** biết cách bảo vệ endpoint API Gateway bằng Cognito authorizer để chỉ cho phép request đã xác thực.
+* **AWS Amplify:** hiểu vai trò của Amplify trong việc tích hợp sẵn auth/storage/hosting cho frontend.
+* **Luồng end-to-end:** hình dung được toàn bộ luồng từ người dùng qua xác thực đến xử lý dữ liệu, bao gồm cả xử lý lỗi CORS.
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Project đã có phần frontend kết nối với backend qua serverless API.
+* Tích hợp được xác thực người dùng bằng Amazon Cognito.
+* Test thành công luồng đăng nhập và gọi API có bảo vệ bằng token.
+* Hiểu cách xác thực người dùng ở mức cơ bản (Cognito + JWT).
+* Có thêm screenshot và ghi chú làm tư liệu cho phần workshop trong báo cáo.

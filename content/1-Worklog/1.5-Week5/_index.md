@@ -1,57 +1,42 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 5 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn how to monitor resources and applications using Amazon CloudWatch (Logs, Metrics, Alarms).
+* Understand the auto-scaling mechanism (EC2 Auto Scaling) to ensure performance and optimize cost.
+* Learn how to deliver content globally using a CDN (Amazon CloudFront).
+* Consolidate foundational knowledge to choose a direction for the final project.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks Implemented This Week:
+| Day | Task | Start Date | End Date | References |
+| --- | --- | --- | --- | --- |
+| Monday | - Learn Amazon CloudWatch: distinguish Logs, Metrics and Alarms <br> - Understand how CloudWatch collects metrics from services (EC2, RDS...) <br> - Understand the concepts of namespace, dimension and statistics (Average, Sum, Max) <br> - Learn about CloudWatch Dashboards to visualize data | 18/05/2026 | 18/05/2026 | <https://000008.awsstudygroup.com/> |
+| Tuesday | - **Practice:** view the logs and metrics of an EC2 instance in the Console <br> - Create a simple alarm (e.g. alert when CPU exceeds a threshold) <br> - Configure an action to send a notification via SNS when the alarm triggers <br> - Check the alarm states (OK / ALARM / INSUFFICIENT_DATA) | 19/05/2026 | 19/05/2026 | <https://000008.awsstudygroup.com/> |
+| Wednesday | - Learn about EC2 Auto Scaling: launch templates, Auto Scaling Group (ASG) <br> - Learn the scaling policy types: target tracking, step scaling, scheduled scaling <br> - Understand the concepts of desired/min/max capacity and health checks <br> - Learn how to combine an ASG with a Load Balancer to distribute traffic | 20/05/2026 | 20/05/2026 | <https://000006.awsstudygroup.com/> |
+| Thursday | - Complete the networking workshop based on FCJ documentation: build a VPC, subnets, route tables and connect the components <br> - Apply the networking knowledge learned last week in a complete lab <br> - Test connectivity and troubleshoot any configuration errors | 21/05/2026 | 21/05/2026 | <https://000092.awsstudygroup.com/1-introduce/> |
+| Friday | - Learn about Amazon CloudFront (CDN): the concepts of edge locations and caching <br> - Understand the role of a CDN in reducing latency and load on the origin (S3/EC2) <br> - Learn how to create a distribution and configure the origin and cache behavior <br> - Consolidate and write the Week 5 worklog | 22/05/2026 | 22/05/2026 | <https://000094.awsstudygroup.com/> |
 
+### Knowledge Gained This Week:
+
+* **CloudWatch:** distinguish Logs, Metrics and Alarms; understand how to monitor resources, create alarms and send notifications via SNS.
+* **Auto Scaling:** understand the auto-scaling mechanism through launch templates, Auto Scaling Groups and scaling policies; know how to maintain performance as load changes.
+* **Load Balancing:** grasp the idea of combining an ASG with a Load Balancer to distribute traffic and increase availability.
+* **CloudFront (CDN):** understand how a CDN uses edge locations to cache and deliver content, reducing latency for end users and load on the origin.
+* **Integrated application:** through the networking workshop, learn how to combine multiple services (VPC, EC2, monitoring) into a complete system.
+
+### Challenges This Week:
+
+* Found it difficult to visualize the operating mechanisms of CloudWatch, Auto Scaling, and CloudFront during the initial practice.
 
 ### Week 5 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Learned how to view logs and metrics and create monitoring alarms using CloudWatch.
+* Understood the application auto-scaling mechanism and traffic distribution on AWS.
+* Grasped the role of CloudFront in delivering content globally.
+* Completed the networking workshop and gained foundational knowledge to choose an appropriate project direction.

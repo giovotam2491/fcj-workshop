@@ -6,42 +6,36 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
+Here I would like to freely share my personal opinions about my experience participating in the **Workforce Bootcamp – First Cloud AI Journey (FCAJ)** program at Amazon Web Services Vietnam, to help the FCAJ team improve based on the following aspects:
 
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**1. Working Environment**
+The working environment was very friendly and open. FCAJ members were always willing to help whenever I encountered difficulties, even outside working hours. The community events (such as FCAJ Community Day) also gave me the chance to connect with other interns and mentors outside of daily tasks, which made the whole 12 weeks feel less like working alone.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**2. Support from Mentor / Team Admin**
+My mentor provided detailed, structured guidance every week — from AWS fundamentals in the early weeks to reviewing my serverless RAG chatbot architecture later on. Whenever I got stuck (for example, on IAM permissions or Cognito integration), the mentor encouraged me to investigate and try to solve the problem myself first before stepping in with hints, which helped me build real problem-solving skills instead of just receiving answers. The admin team was responsive and made sure logistics (documents, scheduling, event registration) never got in the way of learning.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**3. Relevance of Work to Academic Major**
+As an Information Technology student, the program matched well with my academic background while going far deeper into practical, industry-standard cloud skills — AWS services, serverless architecture, and generative AI with Amazon Bedrock — that are not usually covered in depth at university. It let me apply theoretical knowledge to a real, end-to-end project rather than isolated exercises.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**4. Learning & Skill Development Opportunities**
+Over 12 weeks I went from AWS basics (IAM, EC2, VPC, S3, RDS/DynamoDB) to building and deploying a full serverless RAG chatbot, including Infrastructure as Code, CI/CD concepts, monitoring, security review, and writing bilingual technical documentation. I also improved soft skills such as weekly progress reporting, time management, and presenting technical decisions clearly.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+**5. Company Culture & Team Spirit**
+The culture at FCAJ was positive and collaborative — everyone was serious about the work but the atmosphere stayed friendly and encouraging. Even as an intern, I felt genuinely included and supported rather than treated as an outsider.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
-
----
-
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+**6. Internship Policies / Benefits**
+The program provided a clear weekly structure, access to learning resources, and opportunities to attend internal events and training sessions, which added a lot of value beyond the core technical curriculum.
 
 ---
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+### A Few Final Words
+
+Looking back on these 12 weeks, what satisfied me most was definitely the moment I successfully designed, built, and deployed the Internal Document Q&A Chatbot (RAG on AWS Serverless) from scratch into a fully working end-to-end system — seeing the frontend, API, Lambda, and Bedrock Knowledge Base all come together into something that genuinely works is a feeling I don't think I'll forget. But honestly, what stayed with me even more than the code or the architecture diagrams were the moments my mentor patiently explained things again from the start when I was still lost among dozens of AWS services, or when the admin team checked in just to see how I was doing, even though they clearly had plenty on their own plate too.
+
+If there's anything I think the program could improve for future interns, it would probably be adding a few more structured architecture/code review sessions in the middle of the project-building phase, rather than mostly at the start and end, so issues can be caught earlier instead of piling up in the final weeks the way mine did. That said, if a friend asked whether they should intern here, I wouldn't hesitate to say yes — the learning curve is well-paced, the project work is hands-on with real AWS services, and above all, the mentor support is something that's genuinely hard to find elsewhere.
+
+I'd like to say a sincere thank you to my mentor for sticking with me throughout this journey, always willing to answer everything from the most basic questions to the trickier technical issues later on. Thanks also to the admin team for taking care of all the logistics and events so smoothly, which let me focus fully on learning and building the project. And thank you to the whole FCAJ community — the fellow interns who went through the tight deadline weeks together with me, learning and laughing along the way to keep things from getting too stressful.
+
+I don't think I could have made it through these 12 weeks as smoothly without that support. This has genuinely been a memorable experience, one that not only strengthened my technical skills but also showed me the value of a workplace that truly looks out for each other. Given the chance, I'd love to stay connected with the FCAJ community going forward, whether through events or another program. I'll close this section with a simple, heartfelt thank you, and I hope to cross paths with everyone again.

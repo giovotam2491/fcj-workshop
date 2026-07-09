@@ -7,23 +7,23 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Phạm Văn Phúc
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0399153813
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** vanphucpham2k4@gmail.com
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** TRƯỜNG ĐẠI HỌC CÔNG NGHỆ TP.HCM (HUTECH)
 
-&emsp; **Ngành:** Công nghệ thông tin
+&emsp; **Ngành:** Công nghệ phần mềm
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** 22DTHD8
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
-&emsp; **Vị trí thực tập:** FCJ Cloud Intern
+&emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
+&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 10/07/2026
 
 ![Ảnh đại diện của bạn](/images/avatar.png)
 

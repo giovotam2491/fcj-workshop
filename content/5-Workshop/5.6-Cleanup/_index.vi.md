@@ -6,32 +6,21 @@ chapter : false
 pre : " <b> 5.6. </b> "
 ---
 
-#### Dọn dẹp tài nguyên
+#### Tổng quan
 
-Xin chúc mừng bạn đã hoàn thành xong lab này!
-Trong lab này, bạn đã học về các mô hình kiến trúc để truy cập Amazon S3 mà không sử dụng Public Internet.
+Chúc mừng bạn đã hoàn thành workshop! Bạn đã dựng xong một RAG chatbot serverless từ đầu đến cuối: DynamoDB, S3, Cognito, IAM, Lambda, API Gateway, và Bedrock Knowledge Base với S3 Vectors.
 
-+ Bằng cách tạo Gateway endpoint, bạn đã cho phép giao tiếp trực tiếp giữa các tài nguyên EC2 và Amazon S3, mà không đi qua Internet Gateway.
-Bằng cách tạo Interface endpoint, bạn đã mở rộng kết nối S3 đến các tài nguyên chạy trên trung tâm dữ liệu trên chỗ của bạn thông qua AWS Site-to-Site VPN hoặc Direct Connect.
+Để tránh phát sinh chi phí, hãy xoá toàn bộ tài nguyên đã tạo trong workshop này. **Không có script dọn dẹp tự động** — tất cả các bước xoá dưới đây thực hiện thủ công trên AWS Console, theo đúng thứ tự khuyến nghị.
 
-#### Dọn dẹp
-1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của  s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xóa bằng cách nhập từ khóa "delete".
+{{% notice warning %}}
+Xoá tài nguyên theo đúng thứ tự sau để tránh lỗi phụ thuộc: **Lambda → API Gateway → DynamoDB → S3 → Bedrock Knowledge Base → Cognito → IAM role → (tuỳ chọn) CloudWatch Log groups**.
+{{% /notice %}}
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+#### Nội dung
 
-2. Disassociate Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
-
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
-
-4.Mở console của CloudFormation và xóa hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
-+ PLOnpremSetup
-+ PLCloudSetup
-
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
-
-5. Xóa các S3 bucket
-
-+ Mở bảng điều khiển S3
-+ Chọn bucket chúng ta đã tạo cho lab, nhấp chuột và xác nhận là empty. Nhấp Delete và xác nhận delete.
-+ 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+- [Xóa AWS Lambda](5.6.1-Delete%20Lambda/)
+- [Xóa API Gateway](5.6.2-Delete%20API%20Gateway/)
+- [Xóa Bedrock Knowledge Base](5.6.3-Delete%20Bedrock%20Knowledge%20Base/)
+- [Xóa bảng DynamoDB](5.6.4-Delete%20DynamoDB/)
+- [Xóa S3 bucket](5.6.5-Delete%20S3%20Bucket/)
+- [Xóa Cognito User Pool](5.6.6-Delete%20Cognito/)

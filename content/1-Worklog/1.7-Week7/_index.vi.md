@@ -1,59 +1,41 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+date: 2026-06-01
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xây dựng phần core serverless backend cho project (Lambda + DynamoDB).
+* Nắm được mô hình CRUD serverless và cách xử lý dữ liệu qua Lambda function.
+* Hiểu cách API Gateway kết nối frontend với backend qua REST API.
+* Thiết kế cấu trúc bảng cho cơ sở dữ liệu của hệ thống.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Học mô hình CRUD serverless (Create, Read, Update, Delete) với Lambda + DynamoDB <br> - Tìm hiểu cách mỗi thao tác CRUD được ánh xạ tới một hàm xử lý và một truy vấn DynamoDB <br> - Hiểu luồng xử lý: request → Lambda → DynamoDB → response | 01/06/2026 | 01/06/2026 | <https://000133.awsstudygroup.com/> |
+| 3 | - **Thực hành:** tạo một Lambda function mới, cấu hình runtime và IAM execution role <br> - Viết handler cơ bản để nhận event và trả về response <br> - Thực hành test function bằng test event trên Console và đọc log trên CloudWatch | 02/06/2026 | 02/06/2026 | <https://000133.awsstudygroup.com/2-create-lambda-functions/> |
+| 4 | - **Thực hành:** kết nối Lambda với DynamoDB bằng AWS SDK <br> - Viết code thực hiện put item (lưu) và get item (đọc) dữ liệu <br> - Cấp quyền cho Lambda truy cập DynamoDB qua IAM policy <br> - Kiểm tra dữ liệu được ghi/đọc đúng trên bảng DynamoDB | 03/06/2026 | 03/06/2026 | <https://000133.awsstudygroup.com/> |
+| 5 | - Tìm hiểu Amazon API Gateway: khái niệm REST API, resource, method (GET/POST/PUT/DELETE) <br> - Hiểu cách tích hợp API Gateway với Lambda (Lambda proxy integration) <br> - Tìm hiểu về stage, deployment và cách API Gateway kết nối frontend với backend | 04/06/2026 | 04/06/2026 | <https://000135.awsstudygroup.com/> |
+| 6 | - Thiết kế các bảng cho cơ sở dữ liệu: xác định entity, thuộc tính, partition key/sort key <br> - Rà soát mối quan hệ giữa các bảng và cách truy vấn dữ liệu <br> - Chuẩn bị nội dung ban đầu cho phần step-by-step trong báo cáo <br> - Tổng hợp và viết worklog tuần 7 | 05/06/2026 | 05/06/2026 | |
 
+### Kiến thức thu được trong tuần:
+
+* **Mô hình CRUD serverless:** hiểu cách xây dựng các thao tác Create/Read/Update/Delete bằng Lambda và DynamoDB không cần máy chủ.
+* **Lambda thực chiến:** biết cách tạo function, viết handler, cấu hình execution role và test/debug bằng CloudWatch Logs.
+* **Kết nối Lambda – DynamoDB:** nắm được cách dùng AWS SDK để đọc/ghi dữ liệu và cấp quyền tối thiểu qua IAM policy.
+* **API Gateway:** hiểu cách phơi bày backend Lambda ra thành REST API cho frontend gọi, qua resource, method và Lambda proxy integration.
+* **Thiết kế database:** biết cách mô hình hóa dữ liệu, chọn partition key/sort key và tổ chức bảng phù hợp với truy vấn.
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Backend serverless xử lý được dữ liệu cơ bản (CRUD).
+* Test thành công luồng: request → xử lý (Lambda) → lưu/đọc dữ liệu (DynamoDB) → response.
+* Nắm được cách API Gateway kết nối frontend với backend.
+* Hoàn thành thiết kế bảng cho cơ sở dữ liệu.
+* Chuẩn bị được nội dung ban đầu cho phần step-by-step trong báo cáo.

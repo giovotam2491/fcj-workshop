@@ -6,35 +6,32 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Chào mừng bạn đến với Nhật ký công việc (Worklog) của em. Phần này ghi chép lại toàn bộ quá trình học tập và thực tập kéo dài 12 tuần của em tại chương trình **First Cloud AI Journey (FCAJ)**.
 
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?
+Trong suốt 3 tháng, nhật ký này trình bày chi tiết hành trình từ việc làm quen với các dịch vụ đám mây cốt lõi của AWS (như IAM, EC2, VPC, S3, RDS) cho đến việc thiết kế, xây dựng và triển khai một ứng dụng Serverless hoàn chỉnh. Mọi bước trong quy trình, bao gồm thiết lập hạ tầng, phát triển backend, rà soát bảo mật và viết tài liệu song ngữ, đều được em ghi chép và lưu giữ tại đây.
 
+Dưới đây là tóm tắt lộ trình công việc hàng tuần của em:
 
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:
+**Tuần 1:** [Làm quen AWS và các dịch vụ cơ bản (IAM, Budgets)](1.1-week1/)
 
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](1.1-week1/)
+**Tuần 2:** [Làm việc với EC2 và Cloud9](1.2-week2/)
 
-**Tuần 2:** [Làm công việc A...](1.2-week2/)
+**Tuần 3:** [Mạng với VPC và host website tĩnh trên S3](1.3-week3/)
 
-**Tuần 3:** [Làm công việc B...](1.3-week3/)
+**Tuần 4:** [Cơ sở dữ liệu trên AWS (RDS và DynamoDB)](1.4-week4/)
 
-**Tuần 4:** [Làm công việc C...](1.4-week4/)
+**Tuần 5:** [Giám sát, Auto Scaling và phân phối nội dung](1.5-week5/)
 
-**Tuần 5:** [Làm công việc D...](1.5-week5/)
+**Tuần 6:** [Chọn đề tài project và học nền tảng serverless](1.6-week6/)
 
-**Tuần 6:** [Làm công việc E...](1.6-week6/)
+**Tuần 7:** [Xây dựng backend serverless với Lambda và DynamoDB](1.7-week7/)
 
-**Tuần 7:** [Làm công việc G...](1.7-week7/)
+**Tuần 8:** [Tích hợp frontend và xác thực với Cognito](1.8-week8/)
 
-**Tuần 8:** [Làm công việc H...](1.8-week8/)
+**Tuần 9:** [Infrastructure as Code và CI/CD cho serverless](1.9-week9/)
 
-**Tuần 9:** [Làm công việc I...](1.9-week9/)
+**Tuần 10:** [Rà soát, bảo mật và dọn dẹp project](1.10-week10/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Tuần 11:** [Viết workshop song ngữ](1.11-week11/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
-
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Tuần 12:** [Hoàn thiện và nộp báo cáo](1.12-week12/)

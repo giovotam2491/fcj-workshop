@@ -6,28 +6,24 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Chatbot Hỏi-Đáp Tài Liệu Nội Bộ — RAG trên AWS Serverless
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong workshop thực hành này, bạn sẽ triển khai một **chatbot RAG (Retrieval-Augmented Generation)** hoàn chỉnh, chạy hoàn toàn trên các dịch vụ **AWS Serverless**. Hệ thống cho phép người dùng nội bộ tải lên tài liệu (PDF/TXT) và đặt câu hỏi bằng ngôn ngữ tự nhiên, nhận về câu trả lời bám sát nội dung tài liệu — kèm trích dẫn nguồn.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Kiến trúc gồm 3 tầng:
++ **Giao diện / Edge** — CloudFront + S3 riêng tư (React SPA) và Amazon Cognito để xác thực người dùng.
++ **API & Xử lý (Serverless)** — API Gateway (HTTP API) với JWT authorizer, AWS Lambda (Node.js/TypeScript), và DynamoDB lưu dữ liệu ứng dụng.
++ **AI — Amazon Bedrock** — Knowledge Base kết hợp **S3 Vectors**, **Titan Text Embeddings V2**, và **Amazon Nova Lite** để truy hồi và sinh câu trả lời.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Kết thúc workshop, bạn sẽ dựng xong toàn bộ hệ thống trên tài khoản AWS của riêng mình, triển khai frontend, kiểm thử luồng chat từ đầu đến cuối, và dọn dẹp toàn bộ tài nguyên để tránh phát sinh chi phí.
 
 #### Nội dung
 
 1. [Tổng quan về workshop](5.1-Workshop-overview/)
 2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
+3. [Triển khai Backend](5.3-Deploy%20Backend/)
+4. [Triển khai Frontend](5.4-Deploy-frontend/)
+5. [Kiểm thử Chatbot](5.5-Test-chatbot/)
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)

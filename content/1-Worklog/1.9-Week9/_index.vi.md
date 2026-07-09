@@ -1,59 +1,38 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-06-15
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thao tác và quản lý tài nguyên AWS bằng dòng lệnh (AWS CLI) thay vì thao tác thủ công trên Console.
+* Hiểu khái niệm Infrastructure as Code (IaC) và các công cụ triển khai (CloudFormation, CDK, SAM).
+* Nắm được quy trình CI/CD cho ứng dụng serverless để tự động hóa việc build và deploy.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Học AWS CLI: cài đặt và cấu hình credential (aws configure), access key, region, output format <br> - Thực hành các lệnh cơ bản để quản lý S3, EC2, IAM (ví dụ aws s3 ls, aws ec2 describe-instances) <br> - Hiểu lợi ích của CLI trong việc tự động hóa và viết script | 15/06/2026 | 15/06/2026 | <https://000011.awsstudygroup.com/> |
+| 3 | - Tìm hiểu AWS CloudFormation: khái niệm Infrastructure as Code, template (YAML/JSON) và stack <br> - Học cấu trúc một template: Resources, Parameters, Outputs <br> - Hiểu cách CloudFormation tạo/cập nhật/xóa tài nguyên theo template một cách nhất quán | 16/06/2026 | 16/06/2026 | <https://000037.awsstudygroup.com/> |
+| 4 | - Tìm hiểu AWS CDK (Cloud Development Kit): định nghĩa hạ tầng bằng ngôn ngữ lập trình (TypeScript/Python) <br> - So sánh CDK với CloudFormation: CDK sinh ra template CloudFormation nhưng viết bằng code <br> - Hiểu khái niệm construct, stack và app trong CDK | 17/06/2026 | 17/06/2026 | <https://000038.awsstudygroup.com/> |
+| 5 | - Tìm hiểu AWS SAM (Serverless Application Model): framework chuyên cho ứng dụng serverless <br> - Học cấu trúc template SAM và các lệnh sam build, sam deploy, sam local <br> - Hiểu cách SAM đơn giản hóa việc định nghĩa Lambda, API Gateway và DynamoDB | 18/06/2026 | 18/06/2026 | <https://000080.awsstudygroup.com/> |
+| 6 | - Tìm hiểu CI/CD cho ứng dụng serverless: khái niệm pipeline, các stage build → test → deploy <br> - Tìm hiểu các dịch vụ AWS liên quan (CodePipeline, CodeBuild, CodeDeploy) <br> - Hiểu lợi ích của tự động hóa deploy so với thao tác thủ công <br> - Tổng hợp và viết worklog tuần 9 | 19/06/2026 | 19/06/2026 | <https://000084.awsstudygroup.com/> |
 
+### Kiến thức thu được trong tuần:
+
+* **AWS CLI:** biết cách cấu hình credential và dùng dòng lệnh để quản lý tài nguyên, phục vụ tự động hóa và viết script.
+* **Infrastructure as Code:** hiểu triết lý IaC — quản lý hạ tầng bằng file khai báo, giúp tái lập nhất quán và kiểm soát phiên bản.
+* **CloudFormation:** nắm được cấu trúc template (Resources, Parameters, Outputs) và cơ chế stack tạo/cập nhật/xóa tài nguyên.
+* **CDK & SAM:** phân biệt CDK (định nghĩa hạ tầng bằng code) và SAM (framework tối ưu cho serverless), hiểu chúng đều biên dịch xuống CloudFormation.
+* **CI/CD:** hiểu quy trình pipeline build → test → deploy và các dịch vụ AWS Code* để tự động hóa triển khai.
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Biết thao tác và quản lý AWS bằng CLI.
+* Hiểu Infrastructure as Code ở mức cơ bản và phân biệt được CloudFormation, CDK, SAM.
+* Nắm được quy trình CI/CD cho ứng dụng serverless.
+* Project có hướng triển khai chuyên nghiệp hơn, tự động hóa thay vì chỉ thao tác thủ công trên Console.

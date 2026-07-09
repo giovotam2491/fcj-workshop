@@ -1,126 +1,90 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-05-23
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# "FCAJ Community Day" Event Report
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Create networking opportunities with members of the tech community.
+- Learn from industry experts about Cloud Computing and Generative AI (GenAI).
+- Share practical solutions ranging from LLM prompt optimization and network architecture to deploying Enterprise-grade Multi-Agent AI systems.
 
-### Speakers
+### Speaker List
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Nguyen Gia Hung** - Solution Architect at AWS Vietnam & Founder of FCJ.
+- **Tinh Truong** - Platform Engineer at GoTymeX.
+- **Pham Nguyen Hai Anh** - Cloud Consultant at G-AsiaPacific Vietnam.
+- **Nguyen Tuan Thinh** - DevOps Engineer at First Cloud AI Journey.
+- **Team UTMorpho** - Project Development Team at LotusHacks 2026.
+- **Duc Dao** - Solution Architect at Cloud Kinetics.
+- **Vy Lam** - Senior Business Systems Analyst at VPBank.
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Career Trends & Skills in the AI Era (Speaker Nguyen Gia Hung)
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- **The AI Paradox:** As AI makes software development cheaper and faster, the market demand for software creation will skyrocket (similar to how cheap LED lights sparked a boom in lighting demand).
+- **Strict personnel requirements:** A university degree remains a "ticket" and a barrier to overcome in recruitment. However, mere technical knowledge is no longer enough to compete.
+- **Focus on Use Cases and Products:** Engineers must grasp real-world problems in specific domains (finance, banking, etc.) and have the ability to package them into actual products to convince businesses, rather than stopping at demos.
+- **Speed is key:** AI's power doubles every 4 months, demanding tech professionals not to delay updating their knowledge.
 
-#### Transitioning to modern application architecture – Microservices
+#### Optimizing AI Context (Speaker Tinh Truong)
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Many incorrect AI answers aren't due to poor models but a lack of context.
+- An effective context framework consists of 4 steps: **Goal**, **Relevant info**, **Constraints**, and **Success criteria**.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Applying AI Assistants with Amazon Q (Speaker Pham Nguyen Hai Anh)
 
-#### Domain-Driven Design (DDD)
+- Automating repetitive office tasks using AI Agents, supporting secure connections to over 40 enterprise data sources (S3, Databases, etc.).
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### Optimizing Network Infrastructure with Amazon CloudFront (Speaker Nguyen Tuan Thinh)
 
-#### Event-Driven Architecture
+- Using CloudFront along with AWS Shield and WAF to solve DDoS mitigation, protect origin servers (Origin Cloaking), and control costs effectively with fixed-rate plans.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+#### Building Real Products Under Time Pressure (Team UTMorpho)
 
-#### Compute Evolution
+- The 36-hour journey to build a product at a hackathon proves that the best ideas always stem from real-world problems in daily work.
+- In software development, team synchronization and understanding are more important than having too many ideas.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+#### The Truth About LLM Non-Determinism (Speaker Duc Dao)
 
-#### Amazon Q Developer
+- Even when setting Temperature = 0 (T=0) expecting absolute results, AI can still return different answers with a variance of up to 70%.
+- The root cause lies in floating-point arithmetic on GPU architectures and inference batching by platform providers.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+#### Enterprise-Grade Multi-Agent Systems (Speaker Vy Lam)
 
-### Key Takeaways
+- When credit scoring for startups, a Single Agent AI model often fails due to information gaps, context overload, and a lack of cross-checking mechanisms.
+- Using a Multi-Agent architecture (acting as a virtual evaluation board with specialized agents for financial, market, and risk analysis) increases reliability, provides a clear Audit trail, and reduces processing time and costs by up to 95%.
 
-#### Design Mindset
+### Lessons Learned
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+#### Mindset
 
-#### Technical Architecture
+- **Enterprise-grade mindset**: When bringing AI into enterprise systems, "making it run" is not enough. The system must ensure security, data compliance, and operational stability from day one of design.
+- **Perspective on an engineer's value:** Mr. Hung's advice emphasized that core value lies not in writing code quickly, but in understanding business problems (Use cases) and turning them into complete products.
+- **Embracing AI's probabilistic nature**: We shouldn't design applications expecting LLMs to be 100% accurate like traditional code. Instead, we must build fallback mechanisms (e.g., using structured JSON formats) to handle uncertainty.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+#### Application to Work & Study
 
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Instead of setting T=0 when logical answers are needed, setting T=0.1 is a good balance point to prevent LLMs from getting stuck in infinite text loops.
+- A more realistic approach when starting a new project: avoid getting sidetracked by delusional features, and focus on solving real "frustrations," drawing from Team UTMorpho's lesson.
+- Grasping the AI deployment pipeline from a local machine to a real production environment on the AWS platform (via Docker, ECR, Bedrock, and API Gateway).
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Participating in the FCAJ Community Day gave me comprehensive perspectives, from deep technical insights to business problems.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- **Breaking stereotypes**: The event helped me realize common misconceptions when using AI, such as the illusion of "absoluteness" when configuring LLMs, or the risks of relying on a Single Agent for critical decisions.
+- **Inspiration to practice**: Listening to Team UTMorpho's 36-hour hackathon sprint story gave me the excitement and motivation to challenge myself in high-intensity tech arenas in the future. Mr. Gia Hung's statement that "the market changes every 4 months" further urges me to act now.
+- **Career orientation**: Through the bank credit case study, I better understand how large corporations are shaping strict standards (the 6 enterprise pillars), knowing that I need to cultivate more skills in Security and Deployment rather than just knowing how to write code.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+### Photos from the Event
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+![Figure 1](/images/4-EventParticipated/4.1-Event1/moinguoiravesausukien.jpg)
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> *Figure 1. Attendees are leaving after the event has ended.*

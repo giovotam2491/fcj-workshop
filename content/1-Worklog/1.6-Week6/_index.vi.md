@@ -1,58 +1,41 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Lựa chọn đề tài project chính, xác định vấn đề và mục tiêu cần giải quyết.
+* Viết proposal bản nháp và vẽ sơ đồ kiến trúc ban đầu cho hệ thống.
+* Xác định các dịch vụ AWS dự kiến sử dụng trong project.
+* Bắt đầu học mô hình serverless với AWS Lambda, S3 và DynamoDB.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc triển khai trong tuần này:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Nghiên cứu và chọn đề tài project kỹ thuật chính dựa trên kiến thức đã học 5 tuần đầu <br> - Xác định rõ vấn đề (problem statement), mục tiêu và phạm vi của project <br> - Phác thảo các tính năng chính và đối tượng người dùng hướng tới | 25/05/2026 | 25/05/2026 |  |
+| 3 | - Viết proposal bản nháp gồm các phần: tổng quan, bối cảnh/vấn đề, mục tiêu, giải pháp đề xuất <br> - Liệt kê các dịch vụ AWS dự kiến sử dụng và lý do lựa chọn <br> - Xác định sơ bộ luồng dữ liệu và các thành phần chính của hệ thống | 26/05/2026 | 26/05/2026 |  |
+| 4 | - Vẽ sơ đồ kiến trúc (architecture diagram) bản đầu tiên thể hiện cách các dịch vụ AWS kết nối <br> - Thể hiện luồng request từ người dùng qua các thành phần (frontend, backend, database) <br> - Rà soát lại tính hợp lý và khả năng mở rộng của kiến trúc | 27/05/2026 | 27/05/2026 |  |
+| 5 | - Học AWS Lambda cơ bản (Serverless Automation with AWS Lambda): khái niệm function, trigger, event <br> - Hiểu mô hình chạy code không cần quản lý server và cơ chế tính phí theo lượt gọi <br> - Tìm hiểu runtime, handler, IAM execution role và các giới hạn (timeout, memory) | 28/05/2026 | 28/05/2026 | <https://000022.awsstudygroup.com/> |
+| 6 | - Học mô hình serverless backend kết hợp Lambda + S3 + DynamoDB <br> - Hiểu cách Lambda xử lý sự kiện từ S3 (upload file) và đọc/ghi dữ liệu vào DynamoDB <br> - Tìm hiểu cách ghép nối các dịch vụ để tạo một backend không máy chủ hoàn chỉnh <br> - Tổng hợp và viết worklog tuần 6 | 29/05/2026 | 29/05/2026 | <https://000078.awsstudygroup.com/>, <https://000066.awsstudygroup.com/>, <https://000133.awsstudygroup.com/> |
 
+### Kiến thức thu được trong tuần:
+
+* **Phân tích & lập kế hoạch project:** biết cách xác định problem statement, mục tiêu, phạm vi và lựa chọn công nghệ phù hợp cho một project thực tế.
+* **Viết proposal:** nắm được cấu trúc một bản proposal kỹ thuật (tổng quan, vấn đề, mục tiêu, giải pháp, dịch vụ sử dụng).
+* **Thiết kế kiến trúc:** biết cách vẽ architecture diagram thể hiện luồng dữ liệu và mối liên hệ giữa các dịch vụ AWS.
+* **AWS Lambda:** hiểu mô hình serverless (function, trigger, event), cơ chế tính phí theo lượt gọi và vai trò của execution role.
+* **Serverless backend:** hiểu cách kết hợp Lambda + S3 + DynamoDB để xây dựng một backend không cần quản lý server.
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Chốt được hướng đi và đề tài của project.
+* Hoàn thành proposal bản nháp đầu tiên.
+* Vẽ được architecture diagram bản nháp cho hệ thống.
+* Xác định được ít nhất 3 dịch vụ AWS dùng trong project (Lambda, S3, DynamoDB).
+* Nắm được nền tảng của mô hình serverless để triển khai project.

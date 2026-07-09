@@ -5,27 +5,25 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Internal Document Q&A Chatbot — RAG on AWS Serverless
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In this hands-on workshop, you will deploy a complete **Retrieval-Augmented Generation (RAG) chatbot** running entirely on **AWS Serverless** services. The system lets internal users upload documents (PDF/TXT) and ask natural-language questions, receiving answers grounded in — and citing — the uploaded content.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The architecture combines three layers:
++ **Edge / Interface** — CloudFront + private S3 (React SPA) and Amazon Cognito for authentication.
++ **API & Processing (Serverless)** — API Gateway (HTTP API) with a JWT authorizer, AWS Lambda (Node.js/TypeScript), and DynamoDB for application data.
++ **AI — Amazon Bedrock** — a Knowledge Base backed by **S3 Vectors**, **Titan Text Embeddings V2**, and **Amazon Nova Lite** for retrieval and answer generation.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+By the end of this workshop, you will have provisioned the full stack in your own AWS account, deployed the frontend, tested the chat flow end-to-end, and cleaned up every resource to avoid unnecessary cost.
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
+1. [Workshop overview](5.1-Workshop-overview/)
+2. [Prerequisites](5.2-Prerequiste/)
+3. [Deploy Backend](5.3-Deploy%20Backend/)
+4. [Deploy Frontend](5.4-Deploy-frontend/)
+5. [Test the Chatbot](5.5-Test-chatbot/)
 6. [Clean up](5.6-Cleanup/)
