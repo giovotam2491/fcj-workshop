@@ -15,7 +15,9 @@ chapter: false
 
 &emsp; **Trường:** TRƯỜNG ĐẠI HỌC CÔNG NGHỆ TP.HCM (HUTECH)
 
-&emsp; **Ngành:** Công nghệ phần mềm
+&emsp; **Ngành:** Công nghệ thông tin
+
+&emsp; **Chuyên ngành:** Công nghệ phần mềm
 
 &emsp; **Lớp:** 22DTHD8
 

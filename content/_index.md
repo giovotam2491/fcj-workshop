@@ -19,7 +19,9 @@ chapter: false
 
 &emsp; **University:** HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY (HUTECH)
 
-&emsp; **Major:** Software Engineering
+&emsp; **Major:** Information Technology
+
+&emsp; **Specialization:** Software Engineering
 
 &emsp; **Class:** 22DTHD8
 
