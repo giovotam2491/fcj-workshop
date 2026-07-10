@@ -6,34 +6,32 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-
 ### Mục tiêu tuần 3:
-
-* Hiểu kiến trúc mạng cơ bản trên AWS (VPC, subnet, route table, internet gateway).
-* Nắm được cách kiểm soát truy cập mạng bằng Security Group và cấu hình network cho EC2.
-* Nắm được các khái niệm cốt lõi của S3 và host thành công một website tĩnh trên Amazon S3.
-* Hiểu vai trò của DNS và Route 53 trong việc định tuyến truy cập cho hệ thống cloud.
+* Bắt đầu viết hạ tầng dưới dạng mã nguồn (IaC) sử dụng AWS CDK bằng TypeScript.
+* Thiết lập Amazon S3 Bucket chứa tài liệu nguồn nội bộ, cấu hình mã hóa bảo mật nghiêm ngặt.
+* Tìm hiểu cơ chế hoạt động của Amazon Bedrock Knowledge Base và mô hình Titan Embeddings V2.
+* Chuẩn bị dữ liệu tài liệu mẫu (quy trình, quy chế nội bộ) dạng PDF/Markdown để chuẩn bị cho pipeline RAG.
 
 ### Các công việc triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Học kiến trúc VPC (Virtual Private Cloud): dải CIDR, cách chia subnet public/private <br> - Tìm hiểu route table và cách định tuyến traffic giữa các subnet <br> - Hiểu vai trò của Internet Gateway trong việc cho phép subnet public ra Internet | 04/05/2026 | 04/05/2026 | <https://www.youtube.com/watch?v=P8g7Z4NYk3Q&t=3s> |
-| 3 | - Học Security Group: khái niệm stateful firewall, inbound/outbound rule <br> - Phân biệt Security Group và Network ACL <br> - **Thực hành:** cấu hình network cơ bản cho EC2 (gắn subnet, mở port SSH/HTTP qua Security Group) và kiểm tra kết nối | 05/05/2026 | 05/05/2026 | <https://youtu.be/TtlKFgfN3PU?si=xMyuJQQ7oQDA6043> <https://000003.awsstudygroup.com/1-introduce/> |
-| 4 | - Học các khái niệm cơ bản của S3: bucket, object, key, region <br> - Tìm hiểu cơ chế phân quyền: bucket policy, ACL và Block Public Access <br> - Hiểu mô hình lưu trữ object storage và các storage class của S3 | 06/05/2026 | 06/05/2026 | <https://000057.awsstudygroup.com/> |
-| 5 | - **Thực hành:** tạo một S3 bucket, upload file HTML/CSS của website <br> - Bật tính năng Static Website Hosting, cấu hình index/error document <br> - Chỉnh bucket policy để cho phép truy cập công khai và kiểm tra website qua endpoint | 07/05/2026 | 07/05/2026 | <https://000057.awsstudygroup.com/> |
-| 6 | - Tìm hiểu Route 53: khái niệm DNS, hosted zone, các loại record (A, CNAME, Alias) <br> - Học các chính sách định tuyến (routing policy) cơ bản <br> - Tìm hiểu cách trỏ tên miền tới website S3 <br> - Tổng hợp và viết worklog tuần 3 | 08/05/2026 | 08/05/2026 | <https://www.youtube.com/watch?v=6BoTfTtNsGU> <https://000010.awsstudygroup.com/> |
+| 2 | - Tạo thư mục `backend/infra` và khởi tạo ứng dụng CDK mới bằng lệnh `cdk init app --language typescript`. <br> - Tìm hiểu cấu trúc file trong dự án CDK. | 04/05/2026 | 04/05/2026 | [AWS CDK Getting Started](https://docs.aws.amazon.com/cdk/v2/guide/home.html) |
+| 3 | - Viết mã nguồn CDK định nghĩa S3 Bucket lưu trữ tài liệu gốc. <br> - Cấu hình bảo mật nâng cao: chặn hoàn toàn truy cập public (`blockPublicAccess: BlockPublicAccess.BLOCK_ALL`), mã hóa bằng khóa quản lý bởi S3 (`encryption: BucketEncryption.S3_MANAGED`). | 05/05/2026 | 05/05/2026 | [AWS CDK S3 Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3-readme.html) |
+| 4 | - Thực hiện bootstrap môi trường AWS (`cdk bootstrap`). <br> - Chạy lệnh `cdk deploy` để tạo S3 Bucket trên môi trường AWS thực tế, kiểm tra tài nguyên được tạo trên Console. | 06/05/2026 | 06/05/2026 | Tài liệu cá nhân |
+| 5 | - Nghiên cứu tài liệu Amazon Bedrock Knowledge Base. <br> - Tìm hiểu các chiến lược chia nhỏ văn bản (Chunking Strategies) như: Default Chunking (300 tokens, 20% overlap), Fixed-size Chunking, Hierarchical Chunking. | 07/05/2026 | 07/05/2026 | [Bedrock Knowledge Base Chunking](https://docs.aws.amazon.com/bedrock/) |
+| 6 | - Soạn thảo 5 tài liệu nội bộ công ty giả lập (Ví dụ: Quy chế nghỉ phép, Sổ tay văn hóa doanh nghiệp) dạng PDF. <br> - Tìm hiểu thông số mô hình Titan Embeddings V2 (Vector size mặc định 1024-dimensions). <br> - Viết worklog tuần 3. | 08/05/2026 | 08/05/2026 | Tài liệu công ty |
 
 ### Kiến thức thu được trong tuần:
+* **AWS CDK (Cloud Development Kit):** Cách sử dụng TypeScript để định nghĩa và quản lý vòng đời tài nguyên đám mây thay vì viết file CloudFormation JSON/YAML thủ công.
+* **Bảo mật S3 Bucket:** Hiểu cách cấu hình bảo mật tài nguyên tĩnh thông qua `Block Public Access` và mã hóa phía máy chủ (Server-side Encryption - SSE).
+* **Chunking dữ liệu:** Hiểu vì sao phải chia nhỏ tài liệu lớn thành các chunk nhỏ hơn (giúp LLM dễ tìm kiếm và tránh vượt quá giới hạn token ngữ cảnh).
+* **Titan Embeddings V2:** Nắm được cơ chế chuyển văn bản thành vector để lưu trữ vào Vector Database.
 
-* **VPC:** hiểu cách thiết kế mạng riêng ảo trên AWS với dải CIDR, subnet public/private, route table và Internet Gateway.
-* **Bảo mật mạng:** phân biệt Security Group (stateful) và Network ACL (stateless), biết cách mở đúng port cần thiết theo nguyên tắc tối thiểu.
-* **S3:** nắm được mô hình object storage (bucket/object/key), các cơ chế phân quyền (bucket policy, ACL, Block Public Access) và các storage class.
-* **Static Website Hosting:** biết cách host một website tĩnh hoàn chỉnh trên S3, từ upload file đến cấu hình quyền truy cập công khai.
-* **DNS & Route 53:** hiểu vai trò của DNS, các loại record và cách trỏ tên miền tới tài nguyên AWS.
+### Khó khăn gặp phải & Cách giải quyết:
+* **Khó khăn:** Khi chạy lệnh `cdk deploy`, quá trình bị lỗi `ExpiredToken: The security token included in the request is expired` do terminal đang lưu token tạm thời từ phiên đăng nhập cũ đã hết hạn.
+* **Cách giải quyết:** Thực hiện kiểm tra lại credentials bằng `aws sts get-caller-identity`. Tiến hành đăng nhập lại và cập nhật các biến môi trường `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` bằng tài khoản IAM User cố định `intern-admin` đã cấu hình cho dự án, sau đó deploy thành công.
 
 ### Kết quả đạt được tuần 3:
-
-* Hiểu cấu trúc mạng cơ bản trên AWS (VPC, subnet, route table, internet gateway).
-* Cấu hình được network và Security Group cơ bản cho EC2.
-* Host thành công một website tĩnh bằng Amazon S3.
-* Nắm được vai trò của DNS và Route 53 trong hệ thống cloud.
+* Khởi tạo và thiết lập thành công dự án IaC AWS CDK.
+* Deploy thành công S3 Bucket bảo mật trên AWS.
+* Biên soạn xong bộ tài liệu nội bộ mẫu và xác định cấu hình vector embeddings cho mô hình Titan.

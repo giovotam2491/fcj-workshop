@@ -7,33 +7,32 @@ pre: " <b> 1.1. </b> "
 ---
 
 ### Week 1 Objectives:
-
-* Attend the FCAJ opening ceremony and understand the requirements of the internship program and the final project.
-* Learn the AWS overview and the main service categories (Compute, Storage, Networking, Database).
-* Create, configure and secure the first AWS account following best practices (MFA, IAM, least privilege).
-* Set up cost monitoring and control mechanisms from the start to avoid unexpected charges.
+* Survey & Design the overall architecture of the Serverless RAG Chatbot system on AWS.
+* Set up the AWS account and configure basic security settings (Root MFA, IAM User Admin).
+* Establish AWS Budgets to alert on costs, preventing unexpected bills when running AI services (Amazon Bedrock).
+* Initialize the Frontend source code using React + Vite + TypeScript and integrate the GSAP animation library.
 
 ### Tasks Implemented This Week:
 | Day | Task | Start Date | End Date | References |
 | --- | --- | --- | --- | --- |
-| Monday | - Attend the FCAJ opening ceremony at the university; hear the introduction to the program goals, the 12-week roadmap and the evaluation criteria <br> - Read and take notes on the program rules, worklog regulations and the final project deliverables <br> - Get familiar with the working environment, the report submission process and the management tool (Notion) | 20/04/2026 | 20/04/2026 | <https://app.notion.com/p/Group-description-TP-HCM-347df829a730809a8f63d39505644917> |
-| Tuesday | - Learn the overview of cloud computing and service models (IaaS, PaaS, SaaS) <br> - Study the 4 main AWS service categories: Compute (EC2, Lambda), Storage (S3, EBS), Networking (VPC, Route 53), Database (RDS, DynamoDB) <br> - Understand the concepts of Region and Availability Zone and how to choose a suitable Region | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/1-explore/> |
-| Wednesday | - Register and create a new AWS account, verify the email and billing information <br> - Enable MFA (Multi-Factor Authentication) for the root account to increase security <br> - Create a dedicated IAM user with admin privileges for daily use instead of the root account <br> - Set up an account alias and test logging in with the IAM user | 22/04/2026 | 22/04/2026 | <https://000001.awsstudygroup.com/> |
-| Thursday | - Learn the core IAM concepts: User, Group, Role and Policy, and distinguish the role of each component <br> - Practice creating a Group, attaching a Policy and adding a User to the Group <br> - Understand the structure of an IAM Policy (Effect, Action, Resource) <br> - Apply the principle of least privilege when granting permissions | 23/04/2026 | 23/04/2026 | <https://000002.awsstudygroup.com/> |
-| Friday | - Set up AWS Budgets to define budget thresholds and receive email alerts when costs exceed the limit <br> - Configure Cost Explorer to track spending per service <br> - Learn about AWS Support plans and the Free Tier, and how to check free usage <br> - Consolidate and write the Week 1 worklog | 24/04/2026 | 24/04/2026 | <https://000007.awsstudygroup.com/> <https://000009.awsstudygroup.com/> |
+| Mon | - Participate in the project kick-off meeting, receive the Serverless RAG Chatbot topic. <br> - Read and understand the guidelines, weekly worklog regulations, and project requirements. | 20/04/2026 | 20/04/2026 | FCAJ Guidebook |
+| Tue | - Research the theory behind RAG (Retrieval-Augmented Generation). <br> - Analyze the serverless architecture on AWS: Cognito (Auth), API Gateway (API Entry), Lambda (Logic), DynamoDB (Chat History), Bedrock KB (RAG). <br> - Sketch the draft architecture diagram. | 21/04/2026 | 21/04/2026 | [RAG Architecture on AWS](https://aws.amazon.com/blogs/machine-learning/) |
+| Wed | - Register a new AWS Free Tier account. <br> - Enable MFA (Multi-Factor Authentication) for the Root Account. <br> - Create an IAM Group `AdminGroup` and an IAM User `intern-admin` for daily usage. | 22/04/2026 | 22/04/2026 | [AWS Security Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/) |
+| Thu | - Configure AWS Budgets with a monthly spending limit of $10. <br> - Set alert thresholds at 80% ($8) for both actual and forecasted costs. <br> - Link the alerts to Amazon SNS to send notifications directly to my personal email. | 23/04/2026 | 23/04/2026 | [AWS Budgets Guide](https://docs.aws.amazon.com/cost-management/latest/userguide/) |
+| Fri | - Initialize the React frontend using Vite and TypeScript. <br> - Install Tailwind CSS for styling and GSAP for smooth interactive animations. <br> - Run the project locally and inspect the folder structure. | 24/04/2026 | 24/04/2026 | [Vite Guide](https://vitejs.dev/) & [GSAP Docs](https://gsap.com/docs/) |
 
 ### Knowledge Gained This Week:
+* **RAG (Retrieval-Augmented Generation) Concept:** Understood how linking internal document search (Retrieval) with LLM response generation (Generation) minimizes model hallucinations.
+* **IAM Security:** Understood the principle of least privilege, distinguishing between the Root account and an IAM User. Learned how to apply MFA to protect credentials.
+* **AWS Budgets:** Mastered budget automation on AWS to prevent billing surprises at the end of the month.
+* **Vite + React + TS Setup:** Organized a modern Single Page Application with TypeScript for type safety.
 
-* **AWS overview:** understand the cloud computing model, distinguish IaaS/PaaS/SaaS and grasp the role of the 4 core service categories (Compute, Storage, Networking, Database).
-* **Region & Availability Zone:** understand how AWS organizes its physical infrastructure and the criteria for choosing a Region (latency, cost, legal compliance).
-* **Account security:** know why the root account should not be used daily, how to enable MFA and create a replacement admin IAM user.
-* **IAM:** distinguish User, Group, Role and Policy; read and understand the Policy structure (Effect – Action – Resource) and apply the least privilege principle.
-* **Cost management:** know how to use AWS Budgets, Cost Explorer and the Free Tier to monitor and control costs and avoid unexpected charges.
+### Challenges & Solutions:
+* **Challenge:** Did not receive test emails from AWS Budgets despite setting up the thresholds.
+* **Solution:** Discovered that the Amazon SNS topic used for routing alerts requires the recipient to confirm their subscription via an automated verification email. After clicking the confirmation link, budget notifications began arriving as expected.
 
 ### Week 1 Achievements:
-
-* Clearly understood the internship objectives, the program roadmap and the final project requirements.
-* Grasped the AWS overview and the main service categories.
-* Successfully created and secured the first AWS account (root MFA + admin IAM user).
-* Mastered IAM basics (User / Group / Role / Policy) and the least privilege principle.
-* Configured budget alerts to proactively control and prevent unexpected costs.
+* The Serverless RAG Chatbot architecture design draft was approved by the mentor.
+* The AWS account was secured following industry best practices (Root MFA + IAM admin user).
+* AWS Budgets alert system is live and verified.
+* Successfully set up the React + Vite + TypeScript frontend repository.

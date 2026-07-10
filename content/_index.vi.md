@@ -7,11 +7,11 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Phạm Văn Phúc
+&emsp; **Họ và tên:** Nguyễn Tấn Tài
 
-&emsp; **Số điện thoại:** 0399153813
+&emsp; **Số điện thoại:** 0899356596
 
-&emsp; **Email:** vanphucpham2k4@gmail.com
+&emsp; **Email:** taivnfire@gmail.com
 
 &emsp; **Trường:** TRƯỜNG ĐẠI HỌC CÔNG NGHỆ TP.HCM (HUTECH)
 

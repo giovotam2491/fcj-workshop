@@ -6,38 +6,34 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-
 ### Mục tiêu tuần 4:
-
-* Hiểu cơ sở dữ liệu quan hệ (Amazon RDS) và cơ sở dữ liệu NoSQL (Amazon DynamoDB) trên AWS.
-* Thực hành tạo database mẫu, kết nối và test các thao tác đọc/ghi dữ liệu.
-* Phân biệt được khi nào nên dùng relational database và khi nào nên dùng NoSQL.
-* Nắm được vai trò của lớp cache (ElastiCache) trong việc tăng hiệu năng hệ thống.
+* Tạo và cấu hình Amazon OpenSearch Serverless (AOSS) làm Vector Database cho hệ thống RAG.
+* Thiết lập Amazon Bedrock Knowledge Base liên kết với mô hình Titan Embeddings V2.
+* Cấu hình Data Source trỏ về S3 Bucket tài liệu và thực hiện đồng bộ (Sync) dữ liệu.
+* Thực hiện kiểm thử tính năng truy vấn tài liệu với LLM Amazon Nova Lite trực tiếp trên AWS Console.
 
 ### Các công việc triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Học Amazon RDS: các database engine được hỗ trợ (MySQL, PostgreSQL, MariaDB, SQL Server, Oracle) <br> - Tìm hiểu khái niệm DB instance, instance class và storage <br> - Học cơ chế backup tự động, snapshot thủ công và khôi phục dữ liệu <br> - Tìm hiểu Multi-AZ (tính sẵn sàng cao) và Read Replica (mở rộng đọc) | 11/05/2026 | 11/05/2026 | <https://000005.awsstudygroup.com/> |
-| 3 | - **Thực hành:** tạo một DB instance RDS mẫu (chọn engine, instance class, cấu hình Security Group) <br> - Kết nối tới database bằng client (ví dụ MySQL Workbench/CLI) <br> - Tạo bảng, chèn dữ liệu và test truy vấn đọc/ghi cơ bản <br> - Thực hành tạo snapshot và xem lại quá trình khôi phục | 12/05/2026 | 12/05/2026 | <https://000005.awsstudygroup.com/> |
-| 4 | - Học DynamoDB: mô hình bảng NoSQL, item và attribute <br> - Hiểu partition key và sort key, cách chúng quyết định phân phối và truy vấn dữ liệu <br> - Phân biệt hai chế độ dung lượng: on-demand và provisioned (RCU/WCU) <br> - Tìm hiểu khái niệm index (LSI, GSI) ở mức cơ bản | 13/05/2026 | 13/05/2026 | <https://000060.awsstudygroup.com/> |
-| 5 | - **Thực hành:** tạo một bảng DynamoDB (định nghĩa partition key, sort key) <br> - Thực hiện các thao tác put/get/update/delete item trên Console <br> - Thử truy vấn dữ liệu bằng query và scan, so sánh sự khác biệt | 14/05/2026 | 14/05/2026 | <https://000060.awsstudygroup.com/> |
-| 6 | - Tìm hiểu ElastiCache ở mức khái niệm: vai trò của cache trong việc giảm tải cho database <br> - Phân biệt hai engine Redis và Memcached <br> - Hiểu mô hình cache-aside và khi nào nên dùng cache <br> - Tổng hợp và viết worklog tuần 4 | 15/05/2026 | 15/05/2026 | <https://000061.awsstudygroup.com/> |
+| 2 | - Tạo một OpenSearch Serverless collection dạng `Vector search`. <br> - Cấu hình các policy đi kèm: Security Policy (Encryption & Network) và Data Access Policy. | 11/05/2026 | 11/05/2026 | [Amazon OpenSearch Serverless Guide](https://docs.aws.amazon.com/opensearch-service/) |
+| 3 | - Tạo Amazon Bedrock Knowledge Base trên Console. <br> - Chọn mô hình embedding `Titan Multimodal Embeddings G1` hoặc `Titan Text Embeddings V2`. <br> - Kết nối KB với OpenSearch Serverless làm kho lưu trữ vector (Vector Index). | 12/05/2026 | 12/05/2026 | [Amazon Bedrock Knowledge Base Docs](https://docs.aws.amazon.com/bedrock/) |
+| 4 | - Liên kết S3 Bucket tài liệu làm Data Source cho Knowledge Base. <br> - Cấu hình chiến lược phân mảnh dữ liệu mặc định (Default Chunking: 300 tokens, 20% overlap). | 13/05/2026 | 13/05/2026 | Tài liệu cá nhân |
+| 5 | - Upload 5 file tài liệu nội bộ PDF đã soạn thảo ở tuần trước lên S3. <br> - Kích hoạt tác vụ đồng bộ (Ingestion Job) từ giao diện điều khiển (Console) để bắt đầu convert tài liệu thành vector và lưu vào OpenSearch. | 14/05/2026 | 14/05/2026 | Giao diện AWS Console |
+| 6 | - Sử dụng tính năng "Test Knowledge Base" trên Console. <br> - Chọn mô hình LLM Amazon Nova Lite, đặt các câu hỏi liên quan đến tài liệu nội bộ để kiểm tra câu trả lời của RAG. <br> - Tổng hợp và viết worklog tuần 4. | 15/05/2026 | 15/05/2026 | Báo cáo cá nhân |
 
 ### Kiến thức thu được trong tuần:
+* **Amazon OpenSearch Serverless (AOSS):** Hiểu mô hình cơ sở dữ liệu vector serverless, cơ chế phân tách Network Policy (truy cập public/private endpoint) và Data Access Policy (quyền truy cập đọc/ghi dữ liệu index).
+* **Quy trình hoạt động của Ingestion Job:** Hiểu rõ cách dịch vụ tự động tải file từ S3, chia nhỏ (chunking), gọi API Embedding để tạo vector, và lưu trữ vector vào AOSS.
+* **Mô hình LLM Amazon Nova Lite:** Nắm được cách mô hình này xử lý thông tin truy xuất từ tài liệu để trả về câu trả lời tự nhiên nhất cho người dùng.
 
-* **Amazon RDS:** hiểu mô hình database quan hệ được quản lý (managed), các engine hỗ trợ, cơ chế backup/snapshot, Multi-AZ và Read Replica.
-* **Amazon DynamoDB:** nắm được mô hình NoSQL key-value, vai trò của partition key/sort key và hai chế độ dung lượng on-demand/provisioned.
-* **So sánh RDS vs DynamoDB:** biết RDS phù hợp dữ liệu có cấu trúc, quan hệ phức tạp và truy vấn SQL; DynamoDB phù hợp dữ liệu lớn, truy cập theo key với độ trễ thấp và khả năng mở rộng cao.
-* **Query vs Scan:** hiểu sự khác biệt về hiệu năng và chi phí giữa query (theo key) và scan (quét toàn bảng) trong DynamoDB.
-* **ElastiCache:** hiểu vai trò của lớp cache in-memory (Redis/Memcached) trong việc tăng tốc truy cập và giảm tải cho database.
-
-### Khó khăn trong tuần:
-
-* Gặp khó khăn khi phân biệt cách lưu trữ và sử dụng giữa RDS và DynamoDB.
+### Khó khăn gặp phải & Cách giải quyết:
+* **Khó khăn:** Quá trình đồng bộ dữ liệu (Sync Data Source) bị thất bại với lỗi `AccessDenied: Bedrock does not have permissions to access S3 or OpenSearch Serverless`.
+* **Cách giải quyết:** Nguyên nhân do IAM Service Role tự động tạo cho Bedrock thiếu quyền truy cập. Đã khắc phục bằng cách:
+  1. Cập nhật IAM Role của Bedrock KB để cấp quyền đọc (`s3:GetObject`, `s3:ListBucket`) đối với S3 bucket cụ thể.
+  2. Truy cập vào OpenSearch Serverless Console, điều chỉnh Data Access Policy để thêm IAM Role của Bedrock KB vào danh sách Principal có quyền đọc/ghi dữ liệu (`aoss:WriteDocument`, `aoss:ReadDocument`, `aoss:CreateIndex`). Sau đó, chạy lại Ingestion Job thành công.
 
 ### Kết quả đạt được tuần 4:
-
-* Phân biệt được RDS (quan hệ) và DynamoDB (NoSQL) về mô hình lưu trữ và cách sử dụng.
-* Tạo được database RDS và bảng DynamoDB cơ bản, thực hành đọc/ghi dữ liệu.
-* Hiểu khi nào nên chọn relational database và khi nào nên chọn NoSQL.
-* Nắm được vai trò của ElastiCache trong việc tối ưu hiệu năng hệ thống.
+* Tạo thành công cơ sở dữ liệu vector OpenSearch Serverless trên AWS.
+* Thiết lập hoàn chỉnh RAG Data Pipeline từ S3 đến Bedrock Knowledge Base.
+* Ingestion Job chạy thành công, đồng bộ hóa 5 tài liệu nội bộ mẫu thành vector.
+* Chạy thử nghiệm thành công RAG trên Console, chatbot trả lời chính xác dựa theo tài liệu nội bộ.

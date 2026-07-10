@@ -7,32 +7,31 @@ pre: " <b> 1.3. </b> "
 ---
 
 ### Week 3 Objectives:
-
-* Understand the basic network architecture on AWS (VPC, subnet, route table, internet gateway).
-* Learn how to control network access with Security Groups and configure networking for EC2.
-* Grasp the core S3 concepts and successfully host a static website on Amazon S3.
-* Understand the role of DNS and Route 53 in routing access for a cloud system.
+* Start writing Infrastructure as Code (IaC) using AWS CDK with TypeScript.
+* Set up an Amazon S3 Bucket to store internal documents, configuring strict server-side encryption.
+* Research the fundamentals of Amazon Bedrock Knowledge Base and the Titan Embeddings V2 model.
+* Draft sample company documents (procedures, handbooks) in PDF/Markdown format for the RAG pipeline.
 
 ### Tasks Implemented This Week:
 | Day | Task | Start Date | End Date | References |
 | --- | --- | --- | --- | --- |
-| Monday | - Learn the VPC (Virtual Private Cloud) architecture: CIDR ranges, how to split public/private subnets <br> - Understand route tables and how traffic is routed between subnets <br> - Understand the role of the Internet Gateway in allowing a public subnet to reach the Internet | 04/05/2026 | 04/05/2026 | <https://www.youtube.com/watch?v=P8g7Z4NYk3Q&t=3s> |
-| Tuesday | - Learn Security Groups: the concept of a stateful firewall, inbound/outbound rules <br> - Distinguish Security Groups from Network ACLs <br> - **Practice:** configure basic networking for EC2 (attach a subnet, open SSH/HTTP ports via a Security Group) and test connectivity | 05/05/2026 | 05/05/2026 | <https://youtu.be/TtlKFgfN3PU?si=xMyuJQQ7oQDA6043> <https://000003.awsstudygroup.com/1-introduce/> |
-| Wednesday | - Learn the basic S3 concepts: bucket, object, key, region <br> - Understand the permission mechanisms: bucket policy, ACL and Block Public Access <br> - Understand the object storage model and the S3 storage classes | 06/05/2026 | 06/05/2026 | <https://000057.awsstudygroup.com/> |
-| Thursday | - **Practice:** create an S3 bucket and upload the website's HTML/CSS files <br> - Enable Static Website Hosting and configure the index/error documents <br> - Adjust the bucket policy to allow public access and verify the website via the endpoint | 07/05/2026 | 07/05/2026 | <https://000057.awsstudygroup.com/> |
-| Friday | - Learn Route 53: the concepts of DNS, hosted zone, record types (A, CNAME, Alias) <br> - Learn the basic routing policies <br> - Understand how to point a domain name to an S3 website <br> - Consolidate and write the Week 3 worklog | 08/05/2026 | 08/05/2026 | <https://www.youtube.com/watch?v=6BoTfTtNsGU> <https://000010.awsstudygroup.com/> |
+| Mon | - Create the `backend/infra` directory and initialize a new CDK application using `cdk init app --language typescript`. <br> - Inspect the generated project files and configurations. | 04/05/2026 | 04/05/2026 | [AWS CDK Getting Started](https://docs.aws.amazon.com/cdk/v2/guide/home.html) |
+| Tue | - Write CDK code defining the document storage S3 Bucket. <br> - Apply advanced security constraints: block public access completely (`blockPublicAccess: BlockPublicAccess.BLOCK_ALL`) and enforce S3-managed SSE encryption. | 05/05/2026 | 05/05/2026 | [AWS CDK S3 Reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3-readme.html) |
+| Wed | - Execute the CDK environment bootstrap process (`cdk bootstrap`). <br> - Run `cdk deploy` to provision the S3 bucket on AWS and verify the resource in the AWS Management Console. | 06/05/2026 | 06/05/2026 | AWS CDK Docs |
+| Thu | - Research Amazon Bedrock Knowledge Base integration. <br> - Study chunking strategies including Default Chunking (300 tokens, 20% overlap), Fixed-size Chunking, and Hierarchical Chunking. | 07/05/2026 | 07/05/2026 | [Bedrock Knowledge Base Chunking](https://docs.aws.amazon.com/bedrock/) |
+| Fri | - Create 5 mock company documents (e.g., Leave Policy, Employee Handbook) in PDF format. <br> - Research the specifications of the Titan Embeddings V2 model (1024-dimension vectors). <br> - Write the Week 3 worklog. | 08/05/2026 | 08/05/2026 | Intern Worklog |
 
 ### Knowledge Gained This Week:
+* **AWS CDK (Cloud Development Kit):** Learned to use TypeScript to construct and manage AWS cloud resources programmatically rather than writing raw CloudFormation JSON/YAML.
+* **S3 Security Hardening:** Understood S3 security properties, including blocking all public read/write access and configuring Server-Side Encryption (SSE-S3).
+* **Data Chunking:** Learned how and why larger documents are split into smaller chunks (enabling more accurate semantic retrieval and avoiding LLM context limit overflows).
+* **Titan Embeddings V2:** Understood the mechanism of translating human text into multi-dimensional float vectors to be stored in a Vector DB.
 
-* **VPC:** understand how to design a virtual private network on AWS with CIDR ranges, public/private subnets, route tables and an Internet Gateway.
-* **Network security:** distinguish Security Groups (stateful) from Network ACLs (stateless) and know how to open only the necessary ports following the least-privilege principle.
-* **S3:** grasp the object storage model (bucket/object/key), the permission mechanisms (bucket policy, ACL, Block Public Access) and the storage classes.
-* **Static Website Hosting:** know how to host a complete static website on S3, from uploading files to configuring public access.
-* **DNS & Route 53:** understand the role of DNS, the record types and how to point a domain name to AWS resources.
+### Challenges & Solutions:
+* **Challenge:** The `cdk deploy` execution failed with `ExpiredToken: The security token included in the request is expired` because the terminal was storing outdated session tokens.
+* **Solution:** Checked the active session credentials using `aws sts get-caller-identity`. Logged in again and updated the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` using the persistent `intern-admin` IAM credentials configured for this project, then successfully ran the deployment.
 
 ### Week 3 Achievements:
-
-* Understood the basic network structure on AWS (VPC, subnet, route table, internet gateway).
-* Configured basic networking and Security Groups for EC2.
-* Successfully hosted a static website using Amazon S3.
-* Grasped the role of DNS and Route 53 in a cloud system.
+* Successfully initialized and configured the AWS CDK IaC project.
+* Deployed the secure S3 document storage bucket to AWS.
+* Completed mock internal documentation drafts and mapped out vector embedding settings for the Titan model.

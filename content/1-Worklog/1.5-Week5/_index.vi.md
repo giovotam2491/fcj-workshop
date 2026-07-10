@@ -6,38 +6,31 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-
 ### Mục tiêu tuần 5:
-
-* Nắm được cách giám sát tài nguyên và ứng dụng bằng Amazon CloudWatch (Logs, Metrics, Alarms).
-* Hiểu cơ chế co giãn tự động (EC2 Auto Scaling) để đảm bảo hiệu năng và tối ưu chi phí.
-* Nắm được cách phân phối nội dung toàn cầu bằng CDN (Amazon CloudFront).
-* Củng cố kiến thức nền tảng để lựa chọn hướng đi cho project cuối khóa.
+* Thiết kế cơ sở dữ liệu Amazon DynamoDB để lưu trữ thông tin session và lịch sử trò chuyện của người dùng.
+* Cấu hình Amazon Cognito User Pool làm hệ thống quản lý tài khoản và xác thực người dùng.
+* Viết và deploy các Lambda function TypeScript đầu tiên: xử lý tạo mới session (`createSession`) và lấy danh sách session (`getSessions`).
+* Thiết lập quy trình đóng gói (bundling) tự động cho Lambda TypeScript bằng `esbuild` trong AWS CDK.
 
 ### Các công việc triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Học Amazon CloudWatch: phân biệt Logs, Metrics và Alarms <br> - Tìm hiểu cách CloudWatch thu thập metric từ các dịch vụ (EC2, RDS...) <br> - Hiểu khái niệm namespace, dimension và các thống kê (Average, Sum, Max) <br> - Tìm hiểu CloudWatch Dashboard để trực quan hóa dữ liệu | 18/05/2026 | 18/05/2026 | <https://000008.awsstudygroup.com/> |
-| 3 | - **Thực hành:** xem log và metric của một EC2 instance trên Console <br> - Tạo một alarm đơn giản (ví dụ cảnh báo khi CPU vượt ngưỡng) <br> - Cấu hình action gửi thông báo qua SNS khi alarm kích hoạt <br> - Kiểm tra trạng thái alarm (OK / ALARM / INSUFFICIENT_DATA) | 19/05/2026 | 19/05/2026 | <https://000008.awsstudygroup.com/> |
-| 4 | - Tìm hiểu EC2 Auto Scaling: launch template, Auto Scaling Group (ASG) <br> - Học các loại scaling policy: target tracking, step scaling, scheduled scaling <br> - Hiểu khái niệm desired/min/max capacity và health check <br> - Tìm hiểu cách kết hợp ASG với Load Balancer để phân phối tải | 20/05/2026 | 20/05/2026 | <https://000006.awsstudygroup.com/> |
-| 5 | - Thực hiện networking workshop theo tài liệu FCJ: dựng VPC, subnet, route table và kết nối các thành phần <br> - Áp dụng kiến thức mạng đã học ở tuần trước vào một bài lab hoàn chỉnh <br> - Kiểm tra kết nối và khắc phục lỗi cấu hình phát sinh | 21/05/2026 | 21/05/2026 | <https://000092.awsstudygroup.com/1-introduce/> |
-| 6 | - Tìm hiểu Amazon CloudFront (CDN): khái niệm edge location và cache <br> - Hiểu vai trò của CDN trong việc giảm độ trễ và tải cho origin (S3/EC2) <br> - Tìm hiểu cách tạo distribution và cấu hình origin, cache behavior <br> - Tổng hợp và viết worklog tuần 5 | 22/05/2026 | 22/05/2026 | <https://000094.awsstudygroup.com/> |
+| 2 | - Thiết kế cấu trúc bảng DynamoDB lưu lịch sử chat. <br> - Xác định Partition Key là `SessionId` (định dạng UUID) và Sort Key là `Timestamp` để đảm bảo truy vấn tin nhắn sắp xếp theo trình tự thời gian tối ưu. | 18/05/2026 | 18/05/2026 | [DynamoDB Design Patterns](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) |
+| 3 | - Viết CDK code tạo Amazon Cognito User Pool. <br> - Cấu hình đăng nhập bằng Email, chính sách mật khẩu an toàn, và cơ chế gửi mã xác thực OTP qua Email (Self-service sign-up verification). | 19/05/2026 | 19/05/2026 | [CDK Cognito Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito-readme.html) |
+| 4 | - Khởi tạo thư mục dự án `backend/src` chứa mã nguồn Lambda. <br> - Viết mã nguồn TypeScript cho hai hàm: `createSession` (ghi record mới vào DynamoDB) và `getSessions` (truy vấn danh sách session dựa theo `UserId`). | 20/05/2026 | 20/05/2026 | [AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) |
+| 5 | - Cấu hình thuộc tính `NodejsFunction` trong AWS CDK để sử dụng `esbuild` tự động biên dịch code TypeScript thành file JS và tối ưu hóa dung lượng (bundle & minify) trước khi nén zip. | 21/05/2026 | 21/05/2026 | [AWS CDK Nodejs Library](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.html) |
+| 6 | - Triển khai (`cdk deploy`) các tài nguyên lên tài khoản AWS. <br> - Kiểm thử nhanh Lambda function bằng tính năng Test Event trên Console. <br> - Tổng hợp và viết worklog tuần 5. | 22/05/2026 | 22/05/2026 | Báo cáo cá nhân |
 
 ### Kiến thức thu được trong tuần:
+* **Thiết kế DynamoDB:** Hiểu cách lựa chọn Partition Key và Sort Key để tối ưu chi phí đọc/ghi và tránh lỗi phân vùng nóng (hot partition).
+* **Quản lý Auth bằng Cognito:** Cách thiết lập luồng đăng ký, đăng nhập và xác thực token JWT được tạo bởi Cognito User Pool.
+* **Đóng gói Lambda TypeScript:** Nắm vững cách tích hợp `esbuild` vào CDK để giải quyết vấn đề quản lý dependencies trong Lambda (như đóng gói riêng biệt, giảm cold start).
 
-* **CloudWatch:** phân biệt Logs, Metrics và Alarms; hiểu cách giám sát tài nguyên, tạo alarm và gửi thông báo qua SNS.
-* **Auto Scaling:** hiểu cơ chế co giãn tự động qua launch template, Auto Scaling Group và các scaling policy; biết cách đảm bảo hiệu năng khi tải thay đổi.
-* **Load Balancing:** nắm được ý tưởng kết hợp ASG với Load Balancer để phân phối tải và tăng tính sẵn sàng.
-* **CloudFront (CDN):** hiểu cách CDN dùng edge location để cache và phân phối nội dung, giảm độ trễ cho người dùng cuối và giảm tải cho origin.
-* **Vận dụng tổng hợp:** qua networking workshop, biết cách kết hợp nhiều dịch vụ (VPC, EC2, monitoring) thành một hệ thống hoàn chỉnh.
-
-### Khó khăn trong tuần:
-
-* Khó hình dung cơ chế hoạt động của CloudWatch, Auto Scaling và CloudFront khi thực hành lần đầu.
+### Khó khăn gặp phải & Cách giải quyết:
+* **Khó khăn:** Quá trình deploy CDK bị lỗi `esbuild is not installed` do môi trường CDK CLI chạy trên docker hoặc local không tìm thấy thư viện `esbuild` để biên dịch các file TypeScript của Lambda.
+* **Cách giải quyết:** Có 2 cách xử lý: cài đặt `esbuild` toàn cục trên máy (`npm install -g esbuild`) hoặc cài đặt nó làm devDependency trong thư mục root (`npm install -D esbuild`). Đã chọn cách thứ hai (devDependency) để đảm bảo mọi thành viên trong team sau này khi kéo code về chỉ cần chạy `npm install` là có thể deploy được ngay mà không cần cài global tools.
 
 ### Kết quả đạt được tuần 5:
-
-* Biết cách xem log, metric và tạo alarm giám sát bằng CloudWatch.
-* Hiểu cơ chế co giãn ứng dụng (Auto Scaling) và phân phối tải trên AWS.
-* Nắm được vai trò của CloudFront trong việc phân phối nội dung toàn cầu.
-* Hoàn thành networking workshop và có kiến thức nền để chọn hướng project phù hợp.
+* Thiết kế và tạo thành công bảng DynamoDB với cấu trúc PK/SK chuẩn.
+* Cấu hình thành công Cognito User Pool cho việc đăng ký/đăng nhập.
+* Viết và deploy thành công hai API Lambda quản lý session người dùng viết bằng TypeScript với quy trình build tự động bằng `esbuild`.

@@ -7,33 +7,33 @@ pre: " <b> 1.8. </b> "
 ---
 
 ### Week 8 Objectives:
-
-* Add user authentication to the project using Amazon Cognito.
-* Learn the login mechanism for a Single Page Application (SPA).
-* Connect the frontend with the serverless API and test the login flow.
-* Learn about AWS Amplify for supporting storage/auth on the frontend.
+* Optimize the RAG pipeline by tuning search configurations and metadata.
+* Deploy a short-term conversation session state mechanism so the chatbot remembers prior user interactions.
+* Author an automated test script to evaluate response accuracy and mitigate LLM hallucinations.
+* Convert S3 data source formats to structured Markdown files to increase document chunking accuracy.
 
 ### Tasks Implemented This Week:
 | Day | Task | Start Date | End Date | References |
 | --- | --- | --- | --- | --- |
-| Monday | - Learn about Amazon Cognito: the concepts of User Pool and Identity Pool <br> - Learn the sign-up, email confirmation and sign-in flows <br> - Understand the token mechanism (ID token, Access token, Refresh token) granted after a successful login | 08/06/2026 | 08/06/2026 | <https://000081.awsstudygroup.com/> |
-| Tuesday | - Learn the login mechanism for a Single Page Application (SPA) <br> - Learn how the frontend stores and sends the token in the header when calling the API <br> - Understand the JWT concept and how the backend/API Gateway validates the token | 09/06/2026 | 09/06/2026 | <https://000055.awsstudygroup.com/> |
-| Wednesday | - Learn about AWS Amplify at a conceptual level: support for auth, storage and hosting for the frontend <br> - Understand how Amplify integrates natively with Cognito and S3 <br> - Compare using Amplify versus configuring the individual services manually | 10/06/2026 | 10/06/2026 | <https://000134.awsstudygroup.com/> |
-| Thursday | - **Practice:** connect the frontend with the serverless API (API Gateway + Lambda) <br> - Configure a Cognito authorizer for API Gateway to protect the endpoints <br> - Test the login flow: sign in → receive token → call an authenticated API <br> - Capture screenshots of the steps as documentation for the report | 11/06/2026 | 11/06/2026 | <https://000079.awsstudygroup.com/> |
-| Friday | - Research more deeply how the frontend connects and authenticates with the serverless backend <br> - Review the end-to-end flow: user → Cognito → frontend → API Gateway → Lambda → DynamoDB <br> - Handle CORS and authentication errors that arise <br> - Consolidate and write the Week 8 worklog | 12/06/2026 | 12/06/2026 | <https://000079.awsstudygroup.com/> |
+| Mon | - Research search configuration adjustments: modify the `numberOfResults` parameter (increasing from 3 to 5 chunks) to feed more relevant context to the LLM. | 08/06/2026 | 08/06/2026 | [Bedrock Search Configuration](https://docs.aws.amazon.com/bedrock/) |
+| Tue | - Understand and configure the `sessionId` parameter in the `RetrieveAndGenerate` API. <br> - Enable Bedrock to manage conversation states directly on AWS rather than manually passing history in prompts. | 09/06/2026 | 09/06/2026 | [Bedrock Session Management](https://docs.aws.amazon.com/bedrock/) |
+| Wed | - Draft a test suite containing 20 representative queries (including 5 trick questions and 5 questions out of the document scope). <br> - Write a Node.js script to call the `/chat` API automatically and log outputs to a JSON file. | 10/06/2026 | 10/06/2026 | Developer Notes |
+| Thu | - Execute the evaluation script, analyze accurate response rates, and identify hallucination occurrences. <br> - Adjust the System Prompt Template to apply strict language constraints and knowledge boundaries. | 11/06/2026 | 11/06/2026 | RAG Evaluation Logs |
+| Fri | - Convert sample raw PDF scans to clean, structured Markdown documents (using clear headings and lists) to help OpenSearch chunk content more effectively. <br> - Synchronize S3 data sources and write the Week 8 worklog. | 12/06/2026 | 12/06/2026 | Company Docs |
 
 ### Knowledge Gained This Week:
+* **Prompt Engineering for RAG:** Learned how to build highly restrictive system prompts (defining bot roles and instructions on how to handle missing data) to tightly govern LLM behaviors.
+* **Session State Management:** Leveraged Bedrock Runtime's native `sessionId` parameter to allow AWS to store conversation histories optimized for tokens.
+* **Input Data Quality:** Realized how structured data formats (like Markdown with clear structural layouts) yield significantly better vector search match results than unformatted scanned documents.
 
-* **Amazon Cognito:** understand the role of the User Pool/Identity Pool, the sign-up/sign-in flow and the ID/Access/Refresh token mechanism.
-* **SPA authentication:** grasp how the frontend stores and sends a JWT token when calling the API, and how the backend validates the token.
-* **Cognito Authorizer:** know how to protect API Gateway endpoints with a Cognito authorizer to allow only authenticated requests.
-* **AWS Amplify:** understand the role of Amplify in providing built-in auth/storage/hosting for the frontend.
-* **End-to-end flow:** visualize the entire flow from the user through authentication to data processing, including CORS error handling.
+### Challenges & Solutions:
+* **Challenge:** The LLM occasionally suffered from hallucinations, generating plausible but incorrect answers using its general pre-trained knowledge when users asked questions outside the company's document scope.
+* **Solution:** Rewrote the custom prompt template configuration, adding strict compliance directives:
+  "You are a helpful company assistant. You MUST ONLY use the provided reference documents to answer the question. If the information is not present in the references, you MUST reply verbatim: 'Tôi xin lỗi, thông tin này không có trong tài liệu nội bộ công ty.'. Do not assume or fabricate any facts. Answers must be in Vietnamese."
+  After updating the prompt, hallucination rates dropped to 0% in test runs.
 
 ### Week 8 Achievements:
-
-* The project now has a frontend connected to the backend via the serverless API.
-* Integrated user authentication using Amazon Cognito.
-* Successfully tested the login flow and calling a token-protected API.
-* Understood basic user authentication (Cognito + JWT).
-* Obtained additional screenshots and notes as documentation for the workshop section of the report.
+* Optimized Bedrock retrieval precision and relevance.
+* Successfully implemented conversation history memory using Bedrock Session IDs.
+* Eradicated hallucination errors via prompt engineering constraints.
+* Converted document storage files to Markdown, improving vector search accuracy.

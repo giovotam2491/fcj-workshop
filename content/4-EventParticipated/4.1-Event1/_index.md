@@ -1,90 +1,86 @@
 ---
 title: "Event 1"
-date: 2026-05-23
+date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# "FCAJ Community Day" Event Report
+# REPORT: FCAJ COMMUNITY DAY
 
-### Event Objectives
+## 1. Event Overview
 
-- Create networking opportunities with members of the tech community.
-- Learn from industry experts about Cloud Computing and Generative AI (GenAI).
-- Share practical solutions ranging from LLM prompt optimization and network architecture to deploying Enterprise-grade Multi-Agent AI systems.
+- **Objectives:**
+  - Create networking opportunities with technology community members.
+  - Learn from experts about Cloud Computing and Generative AI (GenAI).
+  - Share practical solutions: from LLM prompt optimization, network architecture, to enterprise-grade Multi-Agent AI system deployment.
+- **Date & Time:** 09:00 - 12:00, May 23, 2026.
+- **Location:** 36th Floor, Bitexco Financial Tower, Ho Chi Minh City, Vietnam.
+- **Role:** Attendee.
 
-### Speaker List
+## 2. Speakers
 
-- **Nguyen Gia Hung** - Solution Architect at AWS Vietnam & Founder of FCJ.
-- **Tinh Truong** - Platform Engineer at GoTymeX.
-- **Pham Nguyen Hai Anh** - Cloud Consultant at G-AsiaPacific Vietnam.
-- **Nguyen Tuan Thinh** - DevOps Engineer at First Cloud AI Journey.
-- **Team UTMorpho** - Project Development Team at LotusHacks 2026.
-- **Duc Dao** - Solution Architect at Cloud Kinetics.
-- **Vy Lam** - Senior Business Systems Analyst at VPBank.
+- **Nguyen Gia Hung:** Solution Architect at AWS Vietnam & Founder of FCJ.
+- **Tinh Truong:** Platform Engineer at GoTymeX.
+- **Pham Nguyen Hai Anh:** Cloud Consultant at G-AsiaPacific Vietnam.
+- **Nguyen Tuan Thinh:** DevOps Engineer at First Cloud AI Journey.
+- **Team UTMorpho:** Project development team awardee at LotusHacks 2026.
+- **Duc Dao:** Solution Architect at Cloud Kinetics.
+- **Vy Lam:** Senior Business Systems Analyst at VPBank.
 
-### Key Highlights
+## 3. Session Summaries
 
-#### Career Trends & Skills in the AI Era (Speaker Nguyen Gia Hung)
+### Career Trends & AI Era Skills (Speaker: Nguyen Gia Hung)
 
-- **The AI Paradox:** As AI makes software development cheaper and faster, the market demand for software creation will skyrocket (similar to how cheap LED lights sparked a boom in lighting demand).
-- **Strict personnel requirements:** A university degree remains a "ticket" and a barrier to overcome in recruitment. However, mere technical knowledge is no longer enough to compete.
-- **Focus on Use Cases and Products:** Engineers must grasp real-world problems in specific domains (finance, banking, etc.) and have the ability to package them into actual products to convince businesses, rather than stopping at demos.
-- **Speed is key:** AI's power doubles every 4 months, demanding tech professionals not to delay updating their knowledge.
+- **The AI Paradox:** As AI makes software development cheaper and faster, market demand for software will explode (similar to how cheap LED lights triggered an explosion in lighting demand).
+- **Hiring Requirements:** A university degree is still a necessary "ticket" for recruitment, but technical knowledge alone is no longer enough to compete.
+- **Focus on Use Cases & Products:** Engineers need to master real-world business problems in each domain (finance, banking…) and be able to package them into actual products to convince businesses, rather than stopping at demos.
+- **Speed is Key:** AI capability doubles every 4 months, demanding that tech professionals never delay knowledge updates.
 
-#### Optimizing AI Context (Speaker Tinh Truong)
+### Context Optimization for AI (Speaker: Tinh Truong)
 
-- Many incorrect AI answers aren't due to poor models but a lack of context.
-- An effective context framework consists of 4 steps: **Goal**, **Relevant info**, **Constraints**, and **Success criteria**.
+- Many incorrect AI responses are not due to poor models but a lack of context.
+- **Effective Context Framework (4 steps):** Goal $\rightarrow$ Relevant info $\rightarrow$ Constraints $\rightarrow$ Success criteria.
 
-#### Applying AI Assistants with Amazon Q (Speaker Pham Nguyen Hai Anh)
+### AI Assistant Applications with Amazon Q (Speaker: Pham Nguyen Hai Anh)
 
-- Automating repetitive office tasks using AI Agents, supporting secure connections to over 40 enterprise data sources (S3, Databases, etc.).
+- Automate repetitive office tasks using AI Agents, securely connecting to over 40 enterprise data sources (S3, Databases…).
 
-#### Optimizing Network Infrastructure with Amazon CloudFront (Speaker Nguyen Tuan Thinh)
+### Network Infrastructure Optimization with Amazon CloudFront (Speaker: Nguyen Tuan Thinh)
 
-- Using CloudFront along with AWS Shield and WAF to solve DDoS mitigation, protect origin servers (Origin Cloaking), and control costs effectively with fixed-rate plans.
+- Using CloudFront with AWS Shield and WAF to solve DDoS mitigation, Origin Cloaking, and effective cost control through flat-rate pricing.
 
-#### Building Real Products Under Time Pressure (Team UTMorpho)
+### Building Real Products Under Time Pressure (Team UTMorpho)
 
-- The 36-hour journey to build a product at a hackathon proves that the best ideas always stem from real-world problems in daily work.
-- In software development, team synchronization and understanding are more important than having too many ideas.
+- The 36-hour hackathon product-building journey proved that the best ideas always come from real-world problems encountered in daily work.
+- In software development, team alignment and understanding matter more than having too many ideas.
 
-#### The Truth About LLM Non-Determinism (Speaker Duc Dao)
+### The Truth About LLM Uncertainty (Speaker: Duc Dao)
 
-- Even when setting Temperature = 0 (T=0) expecting absolute results, AI can still return different answers with a variance of up to 70%.
-- The root cause lies in floating-point arithmetic on GPU architectures and inference batching by platform providers.
+- Even when setting Temperature = 0 (T=0) expecting absolute results, AI can still return different answers with deviation rates up to 70%.
+- Root cause: Due to floating-point arithmetic characteristics on GPU architecture and inference batching by platform providers.
 
-#### Enterprise-Grade Multi-Agent Systems (Speaker Vy Lam)
+### Enterprise-Grade Multi-Agent Systems (Speaker: Vy Lam)
 
-- When credit scoring for startups, a Single Agent AI model often fails due to information gaps, context overload, and a lack of cross-checking mechanisms.
-- Using a Multi-Agent architecture (acting as a virtual evaluation board with specialized agents for financial, market, and risk analysis) increases reliability, provides a clear Audit trail, and reduces processing time and costs by up to 95%.
+- When scoring credit for startups, Single Agent AI models often fail due to information gaps, context overload, and lack of cross-validation mechanisms.
+- Using Multi-Agent architecture (acting as a virtual appraisal board with specialized agents for financial, market, and risk analysis) increases reliability, provides clear audit trails, and reduces processing time and costs by up to 95%.
 
-### Lessons Learned
+## 4. Value & Lessons Learned
 
-#### Mindset
+### Mindset
 
-- **Enterprise-grade mindset**: When bringing AI into enterprise systems, "making it run" is not enough. The system must ensure security, data compliance, and operational stability from day one of design.
-- **Perspective on an engineer's value:** Mr. Hung's advice emphasized that core value lies not in writing code quickly, but in understanding business problems (Use cases) and turning them into complete products.
-- **Embracing AI's probabilistic nature**: We shouldn't design applications expecting LLMs to be 100% accurate like traditional code. Instead, we must build fallback mechanisms (e.g., using structured JSON formats) to handle uncertainty.
+- **Enterprise-grade Mindset:** When deploying AI into enterprise systems, "making it work" is not enough. The system must ensure security, data compliance, and stable operations from day one of design.
+- **Engineer's Value Perspective:** Core value lies not in writing code fast, but in understanding business problems (Use cases) and turning them into complete products.
+- **Accepting AI's Probabilistic Nature:** Applications should not expect LLMs to be 100% accurate like conventional code; instead, build fallback mechanisms (e.g., structured JSON formats) to handle uncertainty.
 
-#### Application to Work & Study
+### Application to Work & Study
 
-- Instead of setting T=0 when logical answers are needed, setting T=0.1 is a good balance point to prevent LLMs from getting stuck in infinite text loops.
-- A more realistic approach when starting a new project: avoid getting sidetracked by delusional features, and focus on solving real "frustrations," drawing from Team UTMorpho's lesson.
-- Grasping the AI deployment pipeline from a local machine to a real production environment on the AWS platform (via Docker, ECR, Bedrock, and API Gateway).
+- Instead of setting T=0 when needing logical answers, setting T=0.1 provides a good balance to prevent LLMs from getting stuck in infinite text loops.
+- A more practical approach when starting a new project: avoid spreading too thin on imaginary features, focus on solving real frustrations like the UTMorpho team's lesson.
+- Learned the AI deployment pipeline from local machine to production environment on AWS (via Docker, ECR, Bedrock, and API Gateway).
 
-### Event Experience
+## 5. Personal Experience
 
-Participating in the FCAJ Community Day gave me comprehensive perspectives, from deep technical insights to business problems.
-
-- **Breaking stereotypes**: The event helped me realize common misconceptions when using AI, such as the illusion of "absoluteness" when configuring LLMs, or the risks of relying on a Single Agent for critical decisions.
-- **Inspiration to practice**: Listening to Team UTMorpho's 36-hour hackathon sprint story gave me the excitement and motivation to challenge myself in high-intensity tech arenas in the future. Mr. Gia Hung's statement that "the market changes every 4 months" further urges me to act now.
-- **Career orientation**: Through the bank credit case study, I better understand how large corporations are shaping strict standards (the 6 enterprise pillars), knowing that I need to cultivate more skills in Security and Deployment rather than just knowing how to write code.
-
-### Photos from the Event
-
-![Figure 1](/images/4-EventParticipated/4.1-Event1/moinguoiravesausukien.jpg)
-
-> *Figure 1. Attendees are leaving after the event has ended.*
+- **Breaking Misconceptions:** The event helped me recognize common misconceptions when using AI, notably the illusion of "absolute" results when configuring LLMs and the risks of using a single AI agent for important decisions.
+- **Inspiration for Action:** Listening to the UTMorpho hackathon team's 36-hour sprint story inspired me to challenge myself in high-intensity tech competitions in the future. Hung's affirmation that "the market changes every 4 months" urged me to take action immediately.
+- **Career Direction:** Through the banking credit case study, I understood how major corporations are shaping strict enterprise standards (6 pillars), realizing I need to strengthen my Security and Deployment skills rather than just coding.

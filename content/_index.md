@@ -11,11 +11,11 @@ chapter: false
 
 
 ### Student Information:
-&emsp; **Full Name:** Pham Van Phuc
+&emsp; **Full Name:** Nguyen Tan Tai
 
-&emsp; **Phone Number:** 0399153813
+&emsp; **Phone Number:** 0899356596
 
-&emsp; **Email:** vanphucpham2k4@gmail.com
+&emsp; **Email:** taivnfire@gmail.com
 
 &emsp; **University:** HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY (HUTECH)
 

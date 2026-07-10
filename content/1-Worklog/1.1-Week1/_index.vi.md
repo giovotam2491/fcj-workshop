@@ -6,35 +6,33 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-
 ### Mục tiêu tuần 1:
-
-* Tham dự lễ khai mạc FCAJ và nắm được yêu cầu của chương trình thực tập cũng như project cuối khóa.
-* Tìm hiểu tổng quan về AWS và các nhóm dịch vụ chính (Compute, Storage, Networking, Database).
-* Tạo, cấu hình và bảo mật tài khoản AWS đầu tiên theo đúng best practice (MFA, IAM, least privilege).
-* Thiết lập cơ chế theo dõi và kiểm soát chi phí ngay từ đầu để tránh phát sinh ngoài ý muốn.
+* Khảo sát & Thiết kế kiến trúc tổng thể hệ thống RAG Chatbot Serverless trên AWS.
+* Thiết lập tài khoản AWS và cấu hình bảo mật căn bản (Root MFA, IAM User Admin).
+* Thiết lập AWS Budgets cảnh báo chi phí phòng ngừa phát sinh ngoài ý muốn khi chạy dịch vụ AI (Amazon Bedrock).
+* Khởi tạo mã nguồn Frontend sử dụng React + Vite + TypeScript và tích hợp thư viện hoạt ảnh GSAP.
 
 ### Các công việc triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Tham dự lễ khai mạc FCAJ tại trường, nghe giới thiệu về mục tiêu, lộ trình 12 tuần và tiêu chí đánh giá của chương trình <br> - Đọc và ghi chú nội quy chương trình, quy định về worklog, yêu cầu đầu ra của project cuối khóa <br> - Làm quen với môi trường làm việc, cách nộp báo cáo và công cụ quản lý (Notion) | 20/04/2026 | 20/04/2026 | <https://app.notion.com/p/Group-description-TP-HCM-347df829a730809a8f63d39505644917> |
-| 3 | - Tìm hiểu tổng quan về điện toán đám mây và mô hình dịch vụ (IaaS, PaaS, SaaS) <br> - Nghiên cứu 4 nhóm dịch vụ chính của AWS: Compute (EC2, Lambda), Storage (S3, EBS), Networking (VPC, Route 53), Database (RDS, DynamoDB) <br> - Tìm hiểu khái niệm Region và Availability Zone, cách chọn Region phù hợp | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/1-explore/> |
-| 4 | - Đăng ký và tạo tài khoản AWS mới, xác thực email và thông tin thanh toán <br> - Bật MFA (Multi-Factor Authentication) cho tài khoản root để tăng bảo mật <br> - Tạo IAM user riêng có quyền quản trị (admin) để dùng hàng ngày thay cho root <br> - Thiết lập alias cho tài khoản và đăng nhập thử bằng IAM user | 22/04/2026 | 22/04/2026 | <https://000001.awsstudygroup.com/> |
-| 5 | - Học các khái niệm IAM cơ bản: User, Group, Role và Policy; phân biệt vai trò của từng thành phần <br> - Thực hành tạo Group, gán Policy và thêm User vào Group <br> - Tìm hiểu cấu trúc của một IAM Policy (Effect, Action, Resource) <br> - Áp dụng nguyên tắc least privilege (quyền tối thiểu) khi cấp quyền | 23/04/2026 | 23/04/2026 | <https://000002.awsstudygroup.com/> |
-| 6 | - Thiết lập AWS Budgets để đặt ngưỡng ngân sách và nhận cảnh báo qua email khi chi phí vượt mức <br> - Cấu hình Cost Explorer để theo dõi chi phí theo dịch vụ <br> - Tìm hiểu các gói AWS Support và Free Tier, cách kiểm tra mức sử dụng miễn phí <br> - Tổng hợp và viết worklog tuần 1 | 24/04/2026 | 24/04/2026 | <https://000007.awsstudygroup.com/> <https://000009.awsstudygroup.com/> |
+| 2 | - Tham gia buổi kick-off dự án thực tập, nhận đề tài xây dựng RAG Chatbot Serverless. <br> - Đọc hiểu các nội quy, quy định viết báo cáo tuần và yêu cầu kỹ thuật của project. | 20/04/2026 | 20/04/2026 | Tài liệu hướng dẫn FCAJ |
+| 3 | - Nghiên cứu lý thuyết về RAG (Retrieval-Augmented Generation). <br> - Phân tích kiến trúc serverless trên AWS: Cognito (Auth), API Gateway (API Entry), Lambda (Logic), DynamoDB (Chat History), Bedrock KB (RAG). <br> - Vẽ sơ đồ kiến trúc thô của hệ thống. | 21/04/2026 | 21/04/2026 | [RAG Architecture on AWS](https://aws.amazon.com/blogs/machine-learning/) |
+| 4 | - Đăng ký tài khoản AWS Free Tier mới. <br> - Bật tính năng MFA (Multi-Factor Authentication) cho Root Account. <br> - Tạo IAM Group `AdminGroup` và IAM User `intern-admin` để thao tác hàng ngày. | 22/04/2026 | 22/04/2026 | [AWS Security Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/) |
+| 5 | - Cấu hình AWS Budgets với giới hạn ngân sách cố định là $10/tháng. <br> - Thiết lập ngưỡng cảnh báo 80% ($8) cho chi phí thực tế (Actual) và chi phí dự báo (Forecasted). <br> - Liên kết cảnh báo với Amazon SNS để gửi thông báo trực tiếp qua Email cá nhân. | 23/04/2026 | 23/04/2026 | [AWS Budgets Guide](https://docs.aws.amazon.com/cost-management/latest/userguide/) |
+| 6 | - Khởi tạo Frontend React sử dụng Vite và TypeScript. <br> - Cài đặt thư viện Tailwind CSS phục vụ layout và GSAP phục vụ các hiệu ứng động mượt mà. <br> - Khởi động dự án trên Localhost và kiểm tra cấu trúc thư mục. | 24/04/2026 | 24/04/2026 | [Vite Guide](https://vitejs.dev/) & [GSAP Docs](https://gsap.com/docs/) |
 
 ### Kiến thức thu được trong tuần:
+* **Mô hình RAG (Retrieval-Augmented Generation):** Hiểu cách kết hợp giữa tìm kiếm ngữ cảnh dữ liệu nội bộ (Retrieval) và khả năng sinh văn bản của LLMs (Generation) giúp hạn chế lỗi ảo giác (hallucination).
+* **Bảo mật IAM:** Hiểu nguyên tắc bảo mật tối thiểu, phân biệt tài khoản Root và IAM User. Cách áp dụng MFA để ngăn chặn việc lộ credentials.
+* **AWS Budgets:** Nắm được cách thiết lập budget giám sát chi phí tự động trên AWS để không bao giờ bị bất ngờ bởi hóa đơn vào cuối tháng.
+* **Cấu hình Vite + React + TS:** Cách tổ chức dự án Single Page Application hiện đại với TypeScript tăng độ an toàn cho code.
 
-* **Tổng quan AWS:** hiểu mô hình điện toán đám mây, phân biệt IaaS/PaaS/SaaS và nắm được vai trò của 4 nhóm dịch vụ cốt lõi (Compute, Storage, Networking, Database).
-* **Region & Availability Zone:** hiểu cách AWS tổ chức hạ tầng vật lý và tiêu chí chọn Region (độ trễ, chi phí, tuân thủ pháp lý).
-* **Bảo mật tài khoản:** biết vì sao không nên dùng tài khoản root hàng ngày, cách bật MFA và tạo IAM user quản trị thay thế.
-* **IAM:** phân biệt được User, Group, Role, Policy; đọc hiểu cấu trúc Policy (Effect – Action – Resource) và áp dụng nguyên tắc least privilege.
-* **Quản lý chi phí:** biết cách dùng AWS Budgets, Cost Explorer và Free Tier để giám sát, kiểm soát chi phí và tránh phát sinh ngoài dự kiến.
+### Khó khăn gặp phải & Cách giải quyết:
+* **Khó khăn:** Không nhận được email cảnh báo thử nghiệm của AWS Budgets dù đã thiết lập ngưỡng cảnh báo.
+* **Cách giải quyết:** Phát hiện ra Amazon SNS topic dùng để định tuyến thông báo yêu cầu người nhận phải xác nhận (Confirm Subscription) qua một email tự động được gửi từ AWS trước. Sau khi bấm vào link "Confirm subscription" trong hòm thư, email cảnh báo từ AWS Budgets đã hoạt động bình thường.
 
 ### Kết quả đạt được tuần 1:
-
-* Hiểu rõ mục tiêu thực tập, lộ trình chương trình và yêu cầu của project cuối khóa.
-* Nắm được tổng quan AWS và các nhóm dịch vụ chính.
-* Tạo và bảo mật thành công tài khoản AWS đầu tiên (root MFA + IAM user quản trị).
-* Nắm vững IAM cơ bản (User / Group / Role / Policy) và nguyên tắc least privilege.
-* Cấu hình cảnh báo ngân sách để chủ động kiểm soát và tránh phát sinh chi phí ngoài ý muốn.
+* Bản vẽ thiết kế kiến trúc hệ thống RAG Chatbot Serverless được phê duyệt.
+* Tài khoản AWS được cấu hình bảo mật đúng chuẩn (bật MFA cho root, sử dụng IAM user).
+* Hệ thống AWS Budgets đã hoạt động và có khả năng cảnh báo chi phí.
+* Khởi tạo thành công repo Frontend React + Vite + TypeScript chạy ổn định trên localhost.

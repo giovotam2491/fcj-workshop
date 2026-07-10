@@ -7,33 +7,37 @@ pre: " <b> 1.6. </b> "
 ---
 
 ### Week 6 Objectives:
-
-* Choose the main project topic and identify the problem and objectives to solve.
-* Write a draft proposal and draw the initial architecture diagram for the system.
-* Identify the AWS services expected to be used in the project.
-* Start learning the serverless model with AWS Lambda, S3 and DynamoDB.
+* Design and configure Amazon API Gateway (REST API) as the public entry point for backend services.
+* Integrate Amazon Cognito User Pool Authorizer into API Gateway to protect all API endpoints.
+* Configure CORS (Cross-Origin Resource Sharing) on API Gateway to allow safe local frontend API calls.
+* Deploy the first API methods for the `/sessions` resource (GET/POST) integrated with their respective Lambda handlers.
 
 ### Tasks Implemented This Week:
 | Day | Task | Start Date | End Date | References |
 | --- | --- | --- | --- | --- |
-| Monday | - Research and choose the main technical project topic based on the knowledge gained in the first 5 weeks <br> - Clearly define the problem statement, objectives and scope of the project <br> - Outline the main features and the target users | 25/05/2026 | 25/05/2026 | |
-| Tuesday | - Write a draft proposal covering: overview, context/problem, objectives, proposed solution <br> - List the AWS services expected to be used and the reasons for choosing them <br> - Preliminarily define the data flow and the main components of the system | 26/05/2026 | 26/05/2026 | |
-| Wednesday | - Draw the first version of the architecture diagram showing how the AWS services connect <br> - Illustrate the request flow from the user through the components (frontend, backend, database) <br> - Review the soundness and scalability of the architecture | 27/05/2026 | 27/05/2026 | |
-| Thursday | - Learn AWS Lambda basics (Serverless Automation with AWS Lambda): the concepts of function, trigger, event <br> - Understand the model of running code without managing servers and the pay-per-invocation pricing <br> - Learn about runtime, handler, IAM execution role and the limits (timeout, memory) | 28/05/2026 | 28/05/2026 | <https://000022.awsstudygroup.com/> |
-| Friday | - Learn the serverless backend model combining Lambda + S3 + DynamoDB <br> - Understand how Lambda handles events from S3 (file upload) and reads/writes data to DynamoDB <br> - Learn how to connect the services to build a complete serverless backend <br> - Consolidate and write the Week 6 worklog | 29/05/2026 | 29/05/2026 | <https://000078.awsstudygroup.com/>, <https://000066.awsstudygroup.com/>, <https://000133.awsstudygroup.com/> |
+| Mon | - Write CDK code defining the API Gateway REST API. <br> - Configure the `/sessions` resource and integrate with Lambdas using Lambda Proxy Integration. | 25/05/2026 | 25/05/2026 | [CDK API Gateway Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway-readme.html) |
+| Tue | - Create a Cognito User Pool Authorizer inside the API Gateway CDK configuration. <br> - Attach the Authorizer to the `/sessions` resource methods (GET/POST) and set the token header key to `Authorization`. | 26/05/2026 | 26/05/2026 | [API Gateway Cognito Authorizer Docs](https://docs.aws.amazon.com/apigateway/) |
+| Wed | - Code the `getChatHistory` Lambda function to query DynamoDB records and retrieve all messages associated with a specific `SessionId` (GET `/sessions/{sessionId}/messages`). | 27/05/2026 | 27/05/2026 | Developer Notes |
+| Thu | - Configure CORS configurations by mapping out standard OPTIONS methods and authorization header access lists. <br> - Test API Gateways using Postman: generate a Cognito ID Token using CLI tools and attach it in the header as `Authorization: Bearer <ID_TOKEN>`. | 28/05/2026 | 28/05/2026 | Postman Reference |
+| Fri | - Test and debug CORS header issues raised in Lambda responses, completing API Gateway deployment. <br> - Consolidate and write the Week 6 worklog. | 29/05/2026 | 29/05/2026 | Intern Worklog |
 
 ### Knowledge Gained This Week:
+* **API Gateway Lambda Proxy Integration:** Understood how HTTP requests are passed verbatim to Lambda handlers as a structured JSON object (`event`), letting Lambda control HTTP response codes and payloads completely.
+* **JWT Token Validation:** Learned how API Gateway automatically validates Cognito JWT token signatures using OIDC keys at the Gateway level, removing manual verification logic from application Lambdas.
+* **CORS Mechanics:** Distinguished between Gateway-level CORS (answering browser preflight OPTIONS requests) and Application-level CORS (returning credentials and headers in actual API responses).
 
-* **Project analysis & planning:** know how to define a problem statement, objectives and scope, and choose suitable technologies for a real project.
-* **Writing a proposal:** grasp the structure of a technical proposal (overview, problem, objectives, solution, services used).
-* **Architecture design:** know how to draw an architecture diagram showing the data flow and the relationships between AWS services.
-* **AWS Lambda:** understand the serverless model (function, trigger, event), the pay-per-invocation pricing and the role of the execution role.
-* **Serverless backend:** understand how to combine Lambda + S3 + DynamoDB to build a backend without managing servers.
+### Challenges & Solutions:
+* **Challenge:** Encountered CORS errors when triggering API requests from local hosts. The browser blocked API responses stating `No 'Access-Control-Allow-Origin' header is present on the requested resource`, even though CORS was configured on API Gateway.
+* **Solution:** Discovered that when Lambda threw business logic exceptions (e.g., returning 400 Bad Request or 500 Server Error), the Lambda handler outputted a response JSON that lacked the required CORS headers. Under Proxy Integration, API Gateway forwards Lambda responses verbatim. Fixed this by updating the backend's shared response helper to always embed the following headers in all Lambda outputs (for both success and error responses):
+  ```json
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+    "Access-Control-Allow-Methods": "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT"
+  }
+  ```
 
 ### Week 6 Achievements:
-
-* Finalized the project direction and topic.
-* Completed the first draft of the proposal.
-* Created a draft architecture diagram for the system.
-* Identified at least 3 AWS services to be used in the project (Lambda, S3, DynamoDB).
-* Grasped the foundations of the serverless model to implement the project.
+* Successfully deployed API Gateway REST API secured with a Cognito User Pool Authorizer.
+* Completed endpoints for session management and chat history queries.
+* Resolved all CORS issue sources across both API Gateway preflights and Lambda proxy response codes.
